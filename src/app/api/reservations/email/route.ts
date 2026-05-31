@@ -1,0 +1,135 @@
+﻿import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    return null;
+  }
+
+  return new Resend(apiKey);
+}
+
+type ReservationEmailPayload = {
+  productCode: string | null;
+  productName: string;
+  selectedSize: string | null;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  message: string
+  address?: string | null;
+};
+
+function createAdminEmail(payload: ReservationEmailPayload) {
+  return `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111;">
+      <h1>Nova Rezervacija</h1>
+      <p>Stigla je nova Rezervacija iz webshopa.</p>
+
+      <h2>Proizvod</h2>
+      <p><strong>Naziv:</strong> ${payload.productName}</p>
+      <p><strong>Šifra artikla:</strong> ${payload.productCode || "-"}</p>
+      <p><strong>Velicina:</strong> ${payload.selectedSize || "-"}</p>
+
+      <h2>Kupac</h2>
+      <p><strong>Ime:</strong> ${payload.firstName} ${payload.lastName}</p>
+      <p><strong>Adresa:</strong> ${payload.address || 'Nije unesena'}</p>
+      <p><strong>Telefon:</strong> ${payload.phone}</p>
+      <p><strong>Email:</strong> ${payload.email}</p>
+
+      <h2>Poruka</h2>
+      <p>${payload.message || "-"}</p>
+    </div>
+  `;
+}
+
+function createCustomerEmail(payload: ReservationEmailPayload) {
+  return `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111;">
+      <h1>Rezervacija je zaprimljena</h1>
+
+      <p>Poštovana/i ${payload.firstName},</p>
+
+      <p>Hvala na rezervaciji. Zaprimili smo tvoj zahtjev i uskoro ćemo te kontaktirati za potvrdu.</p>
+
+      <h2>Detalji rezervacije</h2>
+      <p><strong>Proizvod:</strong> ${payload.productName}</p>
+      <p><strong>Šifra artikla:</strong> ${payload.productCode || "-"}</p>
+      <p><strong>Velicina:</strong> ${payload.selectedSize || "-"}</p>
+
+      <p style="margin-top: 24px;">ženski Butik</p>
+    </div>
+  `;
+}
+
+export async function POST(request: Request) {
+  
+  const resend = getResendClient();
+
+  if (!resend) {
+    return Response.json(
+      { error: "RESEND_API_KEY nije podešen." },
+      { status: 500 }
+    );
+  }
+
+try {
+    const payload = (await request.json()) as ReservationEmailPayload;
+
+    const adminEmail = process.env.ADMIN_EMAIL;
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "ženski Butik <onboarding@resend.dev>";
+
+    if (!process.env.RESEND_API_KEY) {
+      return NextResponse.json(
+        { error: "RESEND_API_KEY nije podesen." },
+        { status: 500 }
+      );
+    }
+
+    if (!adminEmail) {
+      return NextResponse.json(
+        { error: "ADMIN_EMAIL nije podesen." },
+        { status: 500 }
+      );
+    }
+
+    if (!payload.email || !payload.productName) {
+      return NextResponse.json(
+        { error: "Nedostaju podaci za email." },
+        { status: 400 }
+      );
+    }
+
+    const adminResult = await resend.emails.send({
+      from: fromEmail,
+      to: adminEmail,
+      subject: `Nova Rezervacija: ${payload.productName}`,
+      html: createAdminEmail(payload),
+    });
+
+    const customerResult = await resend.emails.send({
+      from: fromEmail,
+      to: payload.email,
+      subject: "Potvrda rezervacije - ženski Butik",
+      html: createCustomerEmail(payload),
+    });
+
+    return NextResponse.json({
+      success: true,
+      adminResult,
+      customerResult,
+    });
+  } catch (error) {
+    console.error("Greska pri slanju emaila:", error);
+
+    return NextResponse.json(
+      { error: "Email nije poslan." },
+      { status: 500 }
+    );
+  }
+}
+
+
