@@ -162,7 +162,7 @@ export default function AdminDashboardPage() {
         <div className="mx-auto flex max-w-7xl flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-white/60">
-              Dress Me Up
+              Venecija butik
             </p>
 
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-white md:text-4xl">

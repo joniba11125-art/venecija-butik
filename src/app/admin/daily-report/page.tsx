@@ -39,7 +39,7 @@ type DailyNote = {
   created_at: string;
 };
 
-const selectedStaffStorageKey = "dressmeup_selected_staff";
+const selectedStaffStorageKey = "venecija-butik_selected_staff";
 
 function getTodayDate() {
   return new Date().toISOString().slice(0, 10);

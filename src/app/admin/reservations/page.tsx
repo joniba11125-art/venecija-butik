@@ -147,7 +147,7 @@ export default function AdminReservationsPage() {
   }
 
   function getSelectedStaff() {
-    const savedStaff = window.localStorage.getItem("dressmeup_selected_staff");
+    const savedStaff = window.localStorage.getItem("venecija-butik_selected_staff");
 
     if (!savedStaff) {
       return null;

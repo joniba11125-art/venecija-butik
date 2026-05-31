@@ -4,13 +4,13 @@ import { AppShell } from "@/components/layout/AppShell";
 
 export const metadata: Metadata = {
   title: {
-    default: "Venecija Butik | Online kolekcija",
-    template: "%s | Venecija Butik",
+    default: "Venecija butik | Online kolekcija",
+    template: "%s | Venecija butik",
   },
   description:
-    "Venecija Butik - online kolekcija odjeće, rezervacije proizvoda i kontakt informacije.",
+    "Venecija butik - online kolekcija odjeće, rezervacije proizvoda i kontakt informacije.",
   keywords: [
-    "Venecija Butik",
+    "Venecija butik",
     "butik",
     "ženska odjeća",
     "elegantna moda",
@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     "boutique",
   ],
   openGraph: {
-    title: "Venecija Butik",
+    title: "Venecija butik",
     description:
       "Online kolekcija odjeće, rezervacije proizvoda i informacije o butiku.",
     type: "website",
     locale: "bs_BA",
-    siteName: "Venecija Butik",
+    siteName: "Venecija butik",
   },
 };
 

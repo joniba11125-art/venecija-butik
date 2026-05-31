@@ -402,7 +402,7 @@ const [selectedSize, setSelectedSize] = useState("");
           </Button>
 
           <p className="text-sm uppercase tracking-[0.35em] text-amber-200/80">
-            Dress Me Up Boutique
+            Venecija butik
           </p>
 
           <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-tight text-white md:text-6xl">
@@ -490,7 +490,7 @@ const [selectedSize, setSelectedSize] = useState("");
 
                 <p className="mt-6 text-base leading-8 text-neutral-600">
                   {product.description ||
-                    "Elegantni komad iz Dress Me Up kolekcije, pažljivo odabran za moderan i svečan stil."}
+                    "Elegantni komad iz Venecija butik kolekcije, pažljivo odabran za moderan i svečan stil."}
                 </p>
 
                 <div className="mt-8">

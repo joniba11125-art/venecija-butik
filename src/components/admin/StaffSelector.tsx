@@ -11,7 +11,7 @@ type StaffMember = {
   is_active: boolean | null;
 };
 
-const selectedStaffStorageKey = "dressmeup_selected_staff";
+const selectedStaffStorageKey = "venecija-butik_selected_staff";
 
 export function StaffSelector() {
   const supabase = createClient();

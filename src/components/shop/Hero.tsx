@@ -48,7 +48,7 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div className="rounded-[2rem] border border-white/15 bg-white/95 p-7 shadow-2xl backdrop-blur md:p-10">
           <p className="mb-4 text-sm uppercase tracking-[0.35em] text-[#b8912f]">
-            Dress Me Up Boutique
+            Venecija butik
           </p>
 
           <h1 className="text-5xl font-semibold tracking-tight text-neutral-950 md:text-7xl">
@@ -97,7 +97,7 @@ export function Hero() {
           <div className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-neutral-100 shadow-2xl">
             <Image
               src={heroImageUrl}
-              alt="Dress Me Up Boutique kolekcija"
+              alt="Venecija butik kolekcija"
               width={900}
               height={1100}
               priority
@@ -110,7 +110,7 @@ export function Hero() {
               Nova kolekcija
             </p>
             <p className="text-xl font-semibold text-neutral-950">
-              Dress Me Up
+              Venecija butik
             </p>
           </div>
         </div>

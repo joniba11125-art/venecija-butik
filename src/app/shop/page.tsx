@@ -231,7 +231,7 @@ export default function ShopPage() {
 
         <div className="relative mx-auto max-w-7xl">
           <p className="mb-3 text-sm uppercase tracking-[0.35em] text-amber-200/80">
-            Dress Me Up Boutique
+            Venecija butik
           </p>
 
           <h1 className="text-4xl font-semibold tracking-tight text-white md:text-6xl">

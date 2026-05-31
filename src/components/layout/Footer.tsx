@@ -8,11 +8,11 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
         <div className="md:col-span-2">
           <Link href="/" className="text-2xl font-semibold tracking-tight">
-            Dress Me Up
+            Venecija butik
           </Link>
 
           <p className="mt-4 max-w-md text-sm leading-7 text-neutral-300">
-            Dress Me Up Boutique je butik iz Tuzle za elegantnu i svečanu modu
+            Venecija butik je butik iz Tuzle za elegantnu i svečanu modu
             za svaki dan.
           </p>
 
@@ -76,7 +76,7 @@ export function Footer() {
 
             <div className="flex flex-wrap gap-2 pt-2">
               <a
-                href="https://www.instagram.com/dressmeup_boutique_/"
+                href="https://www.instagram.com/venecija-butik_boutique_/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
@@ -102,7 +102,7 @@ export function Footer() {
       <div className="mx-auto mt-10 max-w-7xl">
         <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
           <iframe
-            title="Dress Me Up Boutique lokacija"
+            title="Venecija butik lokacija"
             src="https://www.google.com/maps?q=44.53864828988611,18.655821338677246&z=17&output=embed"
             className="h-72 w-full border-0"
             loading="lazy"
@@ -127,7 +127,7 @@ export function Footer() {
       </div>
 
       <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-6 text-sm text-neutral-500">
-        © {new Date().getFullYear()} Dress Me Up Boutique. Demo webshop.
+        © {new Date().getFullYear()} Venecija butik. Demo webshop.
       </div>
     </footer>
   );

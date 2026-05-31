@@ -76,7 +76,7 @@ export function ProductCard({ product, onReserve }: ProductCardProps) {
           </p>
         ) : (
           <p className="line-clamp-2 min-h-12 text-sm leading-6 text-neutral-400">
-            Elegantni komad iz Dress Me Up kolekcije.
+            Elegantni komad iz Venecija butik kolekcije.
           </p>
         )}
 

@@ -61,7 +61,7 @@ export function Header() {
           <div className="relative h-14 w-14">
             <Image
               src="/boutique-logo.png"
-              alt="Venecija Butik"
+              alt="Venecija butik"
               fill
               className="object-contain"
               priority
@@ -70,7 +70,7 @@ export function Header() {
 
           <div>
             <p className="text-xl font-semibold leading-none tracking-tight text-white">
-              Venecija Butik
+              Venecija butik
             </p>
             <p className="mt-1 text-xs text-amber-200/80">Boutique</p>
           </div>

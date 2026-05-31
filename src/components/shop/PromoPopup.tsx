@@ -8,7 +8,7 @@ const promoMessages = [
   "Rezerviši svoj omiljeni komad prije nego nestane.",
   "Nova kolekcija je dostupna - pronađi svoj favorit.",
   "Elegantni komadi za svaki dan i posebne prilike.",
-  "Posjeti Dress Me Up Boutique na Iracu u Tuzli.",
+  "Posjeti Venecija butik na Iracu u Tuzli.",
   "Dostava brzom poštom širom BiH.",
   "Zamjene su moguće u roku od 24h.",
 ];
@@ -65,7 +65,7 @@ export function PromoPopup() {
           <div className="min-w-0 flex-1">
             <div className="flex items-start justify-between gap-3">
               <p className="text-sm font-semibold text-neutral-950">
-                Dress Me Up Boutique
+                Venecija butik
               </p>
 
               <button
