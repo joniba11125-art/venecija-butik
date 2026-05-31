@@ -271,7 +271,6 @@ export default function AdminSettingsPage() {
       .from("staff_members")
       .update({
         is_active: !staff.is_active,
-        updated_at: new Date().toISOString(),
       })
       .eq("id", staff.id);
 
