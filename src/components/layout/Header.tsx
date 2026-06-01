@@ -40,12 +40,12 @@ export function Header() {
 
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
         <Link href="/" className="flex shrink-0 items-center gap-3">
-          <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden  bg-[#7a1020]  shadow-red-950/20">
+          <div className="relative h-[58px] w-[58px] shrink-0 bg-transparent p-0">
             <Image
               src="/logo.png"
               alt="Venecija butik"
               fill
-              className="h-full w-full object-contain p-0"
+              className="object-contain"
               priority
             />
           </div>
