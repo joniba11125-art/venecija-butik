@@ -1,4 +1,4 @@
-﻿# Boutique Template - novi klijent
+﻿# Gračanica · Lukavac · Tuzla Template - novi klijent
 
 Ovo je osnovni template za butik webshop / online katalog.
 

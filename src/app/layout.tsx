@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Venecija butik",
     description:
-      "Online kolekcija odjeće, rezervacije proizvoda i informacije o butiku.",
+      "Robu šaljemo brzom poštom. Kontakt: 061/292-352.",
     type: "website",
     locale: "bs_BA",
     siteName: "Venecija butik",

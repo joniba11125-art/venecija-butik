@@ -40,7 +40,7 @@ function FAQSection() {
     },
     {
       question: "Gdje se nalazi butik?",
-      answer: "Butik se nalazi na adresi koju vlasnik unosi za konkretnog klijenta.",
+      answer: "Venecija butik možete pronaći u Gračanici, Lukavcu i Tuzli.",
     },
   ];
 

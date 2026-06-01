@@ -539,10 +539,10 @@ const [selectedSize, setSelectedSize] = useState("");
                   <div className="rounded-2xl border bg-[#fffaf0] p-4">
                     <PackageCheck className="mb-3 h-5 w-5 text-[#b8912f]" />
                     <p className="text-sm font-semibold text-neutral-950">
-                      Dostava 11,00 KM
+                      Brza pošta
                     </p>
                     <p className="mt-1 text-xs leading-5 text-neutral-500">
-                      Isporuka 1-3 radna dana.
+                      Robu šaljemo brzom poštom.
                     </p>
                   </div>
 
@@ -559,10 +559,10 @@ const [selectedSize, setSelectedSize] = useState("");
                   <div className="rounded-2xl border bg-[#fffaf0] p-4">
                     <MapPin className="mb-3 h-5 w-5 text-[#b8912f]" />
                     <p className="text-sm font-semibold text-neutral-950">
-                      Butik Tuzla
+                      Venecija butik
                     </p>
                     <p className="mt-1 text-xs leading-5 text-neutral-500">
-                      Irac, Rudarska 50.
+                      Gračanica · Lukavac · Tuzla
                     </p>
                   </div>
 

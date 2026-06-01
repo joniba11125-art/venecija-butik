@@ -44,7 +44,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-7 max-w-xl text-base leading-8 text-[#6b3b3f] md:text-lg">
-            Pregledajte novu kolekciju, izaberite veličinu i rezervišite komad direktno online. Elegantno, brzo i jednostavno.
+            Robu šaljemo brzom poštom. Posjetite nas u Gračanici, Lukavcu i Tuzli ili nas kontaktirajte za rezervaciju.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -65,28 +65,28 @@ export function Hero() {
             >
               <Link href="/#contact">
                 <MapPin className="mr-2 h-4 w-4" />
-                Lokacija butika
+                Lokacije
               </Link>
             </Button>
           </div>
 
           <div className="mt-10 grid max-w-xl grid-cols-3 overflow-hidden rounded-[2rem] border border-[#7a1020]/10 bg-white shadow-sm">
             <div className="p-5">
-              <p className="text-3xl font-black text-[#24060b]">50+</p>
+              <p className="text-2xl font-black text-[#24060b]">Gračanica</p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#9c5b61]">
-                proizvoda
+                Zlatnih ljiljana bb
               </p>
             </div>
             <div className="border-x border-[#7a1020]/10 p-5">
-              <p className="text-3xl font-black text-[#24060b]">24h</p>
+              <p className="text-2xl font-black text-[#24060b]">Lukavac</p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#9c5b61]">
-                rezervacije
+                Patriotske Lige bb
               </p>
             </div>
             <div className="p-5">
-              <p className="text-3xl font-black text-[#24060b]">11 KM</p>
+              <p className="text-2xl font-black text-[#24060b]">Tuzla</p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#9c5b61]">
-                dostava
+                Kontakt 061/292-352
               </p>
             </div>
           </div>

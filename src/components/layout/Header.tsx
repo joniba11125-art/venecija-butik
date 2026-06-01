@@ -18,12 +18,12 @@ const navigation = [
 const socialLinks = [
   {
     name: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/butik.venecija/?hl=en",
     icon: FaInstagram,
   },
   {
     name: "Facebook",
-    href: "#",
+    href: "https://www.facebook.com/p/Butik-Venecija-61561577972720/",
     icon: FaFacebookF,
   },
 ];
@@ -54,7 +54,7 @@ export function Header() {
               Venecija butik
             </p>
             <p className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-[#a33a45]">
-              fashion studio
+              Gračanica · Lukavac · Tuzla
             </p>
           </div>
         </Link>

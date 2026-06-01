@@ -8,7 +8,7 @@ export function Footer() {
         <div>
           <p className="text-2xl font-black">Venecija butik</p>
           <p className="mt-3 max-w-md text-sm leading-7 text-white/65">
-            Online kolekcija, rezervacije proizvoda i informacije o dostupnim komadima.
+            Robu šaljemo brzom poštom. Posjetite nas u Gračanici, Lukavcu i Tuzli ili nas kontaktirajte na 061/292-352.
           </p>
         </div>
 
@@ -35,14 +35,14 @@ export function Footer() {
           </p>
           <div className="mt-4 flex gap-3">
             <a
-              href="#"
+              href="https://www.instagram.com/butik.venecija/?hl=en"
               aria-label="Instagram"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white hover:text-[#7a1020]"
             >
               <FaInstagram className="h-4 w-4" />
             </a>
             <a
-              href="#"
+              href="https://www.facebook.com/p/Butik-Venecija-61561577972720/"
               aria-label="Facebook"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white hover:text-[#7a1020]"
             >
