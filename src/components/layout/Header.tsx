@@ -45,7 +45,7 @@ export function Header() {
               src="/logo.png"
               alt="Venecija butik"
               fill
-              className="object-contain p-2"
+              className="h-full w-full object-contain p-0"
               priority
             />
           </div>
