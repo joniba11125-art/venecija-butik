@@ -326,8 +326,8 @@ export default function AdminSettingsPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-neutral-50">
-      <section className="border-b bg-white px-4 py-6">
+    <main className="min-h-screen bg-[#fff7f4] text-[#24060b]">
+      <section className="border-b border-[#7a1020]/10 bg-white/85 px-4 py-6 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <Button asChild variant="ghost" className="mb-3 px-0">
@@ -337,11 +337,11 @@ export default function AdminSettingsPage() {
               </Link>
             </Button>
 
-            <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#8b4a50]">
               Admin
             </p>
 
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[#24060b]">
               Postavke sajta
             </h1>
           </div>
@@ -362,7 +362,7 @@ export default function AdminSettingsPage() {
 
             <CardContent className="space-y-5">
               {isLoading ? (
-                <div className="rounded-2xl bg-neutral-50 p-6 text-center text-neutral-600">
+                <div className="rounded-2xl bg-[#fff7f4] p-6 text-center text-[#6b3b3f]">
                   Učitavanje postavki...
                 </div>
               ) : (
@@ -378,17 +378,17 @@ export default function AdminSettingsPage() {
                       />
                     </div>
                   ) : (
-                    <div className="rounded-3xl bg-neutral-100 p-10 text-center text-neutral-500">
+                    <div className="rounded-3xl bg-neutral-100 p-10 text-center text-[#8b4a50]">
                       Nema slike.
                     </div>
                   )}
 
-                  <label className="flex cursor-pointer flex-col items-center justify-center rounded-3xl border border-dashed bg-neutral-50 p-8 text-center">
-                    <ImagePlus className="mb-3 h-8 w-8 text-neutral-500" />
-                    <span className="text-sm font-medium text-neutral-900">
+                  <label className="flex cursor-pointer flex-col items-center justify-center rounded-3xl border border-dashed bg-[#fff7f4] p-8 text-center">
+                    <ImagePlus className="mb-3 h-8 w-8 text-[#8b4a50]" />
+                    <span className="text-sm font-medium text-[#24060b]">
                       Klikni za upload nove početne slike
                     </span>
-                    <span className="mt-1 text-xs text-neutral-500">
+                    <span className="mt-1 text-xs text-[#8b4a50]">
                       Preporuka: horizontalna slika. Slika se automatski cropuje i optimizuje.
                     </span>
                     <input
@@ -446,7 +446,7 @@ export default function AdminSettingsPage() {
                   value={newStaffName}
                   onChange={(event) => setNewStaffName(event.target.value)}
                   placeholder="Unesite radnicu"
-                  className="h-11 rounded-full border bg-white px-4 text-sm outline-none focus:border-neutral-950"
+                  className="h-11 rounded-full border bg-white px-4 text-sm outline-none focus:border-[#7a1020]"
                 />
 
                 <Button
@@ -460,13 +460,13 @@ export default function AdminSettingsPage() {
               </div>
 
               {staffMessage ? (
-                <div className="rounded-2xl border bg-neutral-50 p-4 text-sm text-neutral-700">
+                <div className="rounded-2xl border bg-[#fff7f4] p-4 text-sm text-[#4f252a]">
                   {staffMessage}
                 </div>
               ) : null}
 
               {staffMembers.length === 0 ? (
-                <div className="rounded-2xl bg-neutral-50 p-6 text-center text-neutral-600">
+                <div className="rounded-2xl bg-[#fff7f4] p-6 text-center text-[#6b3b3f]">
                   Još nema dodanih radnica.
                 </div>
               ) : (
@@ -477,10 +477,10 @@ export default function AdminSettingsPage() {
                       className="flex flex-col gap-3 rounded-2xl border bg-white p-4 sm:flex-row sm:items-center sm:justify-between"
                     >
                       <div>
-                        <p className="font-medium text-neutral-950">
+                        <p className="font-medium text-[#24060b]">
                           {staff.name}
                         </p>
-                        <p className="mt-1 text-xs text-neutral-500">
+                        <p className="mt-1 text-xs text-[#8b4a50]">
                           {staff.is_active ? "Aktivna" : "Sakrivena"}
                         </p>
                       </div>

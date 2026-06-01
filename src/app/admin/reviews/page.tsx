@@ -291,8 +291,8 @@ export default function AdminReviewsPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-neutral-50">
-      <section className="border-b bg-white px-4 py-6">
+    <main className="min-h-screen bg-[#fff7f4] text-[#24060b]">
+      <section className="border-b border-[#7a1020]/10 bg-white/85 px-4 py-6 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <Button asChild variant="ghost" className="mb-3 px-0">
@@ -302,10 +302,10 @@ export default function AdminReviewsPage() {
               </Link>
             </Button>
 
-            <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#8b4a50]">
               Admin
             </p>
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[#24060b]">
               Recenzije
             </h1>
           </div>
@@ -454,11 +454,11 @@ export default function AdminReviewsPage() {
 
             <CardContent>
               {isLoading ? (
-                <div className="rounded-2xl bg-neutral-50 p-6 text-center text-neutral-600">
+                <div className="rounded-2xl bg-[#fff7f4] p-6 text-center text-[#6b3b3f]">
                   učitavanje recenzija...
                 </div>
               ) : reviews.length === 0 ? (
-                <div className="rounded-2xl bg-neutral-50 p-6 text-center text-neutral-600">
+                <div className="rounded-2xl bg-[#fff7f4] p-6 text-center text-[#6b3b3f]">
                   Još nema recenzija.
                 </div>
               ) : (
@@ -466,11 +466,11 @@ export default function AdminReviewsPage() {
                   {reviews.map((review) => (
                     <div
                       key={review.id}
-                      className="grid gap-4 rounded-3xl border bg-white p-4 md:grid-cols-[1fr_auto]"
+                      className="grid gap-4 rounded-3xl border border-[#7a1020]/10 bg-white/95 p-4 md:grid-cols-[1fr_auto]"
                     >
                       <div>
                         <div className="flex flex-wrap items-center gap-2">
-                          <h2 className="text-lg font-semibold text-neutral-950">
+                          <h2 className="text-lg font-semibold text-[#24060b]">
                             {review.customer_name}
                           </h2>
 
@@ -478,7 +478,7 @@ export default function AdminReviewsPage() {
                             className={
                               review.is_approved
                                 ? "rounded-full bg-green-100 px-3 py-1 text-xs text-green-700"
-                                : "rounded-full bg-neutral-200 px-3 py-1 text-xs text-neutral-700"
+                                : "rounded-full bg-neutral-200 px-3 py-1 text-xs text-[#4f252a]"
                             }
                           >
                             {review.is_approved ? "Odobrena" : "Sakrivena"}
@@ -490,17 +490,17 @@ export default function AdminReviewsPage() {
                             (_, index) => (
                               <Star
                                 key={index}
-                                className="h-4 w-4 fill-neutral-950 text-neutral-950"
+                                className="h-4 w-4 fill-neutral-950 text-[#24060b]"
                               />
                             )
                           )}
                         </div>
 
-                        <p className="mt-3 text-sm leading-6 text-neutral-600">
+                        <p className="mt-3 text-sm leading-6 text-[#6b3b3f]">
                           {review.comment}
                         </p>
 
-                        <p className="mt-2 text-xs text-neutral-500">
+                        <p className="mt-2 text-xs text-[#8b4a50]">
                           {new Date(review.created_at).toLocaleDateString(
                             "bs-BA"
                           )}

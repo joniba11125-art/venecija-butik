@@ -298,7 +298,7 @@ export default function AdminDashboardPage() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-[#7a1020]/10 bg-[#3b0710] p-6 text-white shadow-[0_20px_60px_rgba(74,8,19,0.18)]">
+            <div className="rounded-[2rem] border border-[#7a1020]/10 bg-[#4a0611] p-6 text-white shadow-[0_20px_60px_rgba(74,8,19,0.18)]">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
                 <User className="h-6 w-6 text-rose-100" />
               </div>

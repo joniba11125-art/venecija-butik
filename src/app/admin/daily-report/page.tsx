@@ -262,8 +262,8 @@ export default function AdminDailyReportPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-neutral-50">
-      <section className="border-b bg-white px-4 py-6">
+    <main className="min-h-screen bg-[#fff7f4] text-[#24060b]">
+      <section className="border-b border-[#7a1020]/10 bg-white/85 px-4 py-6 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <Button asChild variant="ghost" className="mb-3 px-0">
@@ -273,16 +273,16 @@ export default function AdminDailyReportPage() {
               </Link>
             </Button>
 
-            <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#8b4a50]">
               Admin
             </p>
 
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[#24060b]">
               Dnevni izvještaj
             </h1>
 
             {selectedStaffName ? (
-              <p className="mt-1 text-sm text-neutral-600">
+              <p className="mt-1 text-sm text-[#6b3b3f]">
                 Trenutno izabrana radnica: {selectedStaffName}
               </p>
             ) : (
@@ -300,7 +300,7 @@ export default function AdminDailyReportPage() {
                 setSelectedDate(event.target.value);
                 loadDailyReport(event.target.value);
               }}
-              className="h-10 rounded-full border border-white/20 bg-white px-4 text-sm font-medium text-neutral-950 outline-none transition placeholder:text-neutral-500 [color-scheme:light] focus:border-neutral-950 focus:bg-white"
+              className="h-10 rounded-full border border-white/20 bg-white px-4 text-sm font-medium text-[#24060b] outline-none transition placeholder:text-[#8b4a50] [color-scheme:light] focus:border-[#7a1020] focus:bg-white"
             />
 
             <Button variant="outline" onClick={() => loadDailyReport()}>
@@ -318,7 +318,7 @@ export default function AdminDailyReportPage() {
               <Card className="rounded-3xl">
                 <CardHeader className="flex flex-row items-center justify-between">
                   <CardTitle className="text-base">Aktivnosti</CardTitle>
-                  <CalendarDays className="h-5 w-5 text-neutral-500" />
+                  <CalendarDays className="h-5 w-5 text-[#8b4a50]" />
                 </CardHeader>
                 <CardContent>
                   <p className="text-3xl font-semibold">
@@ -357,7 +357,7 @@ export default function AdminDailyReportPage() {
 
               <CardContent>
                 {isLoading ? (
-                  <div className="rounded-2xl bg-neutral-50 p-6 text-center text-neutral-600">
+                  <div className="rounded-2xl bg-[#fff7f4] p-6 text-center text-[#6b3b3f]">
                     Učitavanje aktivnosti...
                   </div>
                 ) : errorMessage ? (
@@ -365,7 +365,7 @@ export default function AdminDailyReportPage() {
                     {errorMessage}
                   </div>
                 ) : activityLogs.length === 0 ? (
-                  <div className="rounded-2xl bg-neutral-50 p-6 text-center text-neutral-600">
+                  <div className="rounded-2xl bg-[#fff7f4] p-6 text-center text-[#6b3b3f]">
                     Nema aktivnosti za ovaj dan.
                   </div>
                 ) : (
@@ -373,12 +373,12 @@ export default function AdminDailyReportPage() {
                     {activityLogs.map((activity) => (
                       <div
                         key={activity.id}
-                        className="rounded-3xl border bg-white p-5"
+                        className="rounded-3xl border border-[#7a1020]/10 bg-white/95 p-5"
                       >
                         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                           <div>
                             <div className="flex flex-wrap items-center gap-2">
-                              <span className="rounded-full bg-neutral-950 px-3 py-1 text-xs text-white">
+                              <span className="rounded-full bg-[#fff7f4] px-3 py-1 text-xs text-white">
                                 {formatTime(activity.created_at)}
                               </span>
 
@@ -387,17 +387,17 @@ export default function AdminDailyReportPage() {
                               </span>
 
                               {activity.product_code ? (
-                                <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700">
+                                <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-[#4f252a]">
                                   {activity.product_code}
                                 </span>
                               ) : null}
                             </div>
 
-                            <p className="mt-3 text-sm leading-6 text-neutral-700">
+                            <p className="mt-3 text-sm leading-6 text-[#4f252a]">
                               {activity.note}
                             </p>
 
-                            <div className="mt-3 grid gap-1 text-sm text-neutral-500">
+                            <div className="mt-3 grid gap-1 text-sm text-[#8b4a50]">
                               {activity.product_name ? (
                                 <p>Proizvod: {activity.product_name}</p>
                               ) : null}
@@ -470,11 +470,11 @@ export default function AdminDailyReportPage() {
 
               <CardContent>
                 {isLoading ? (
-                  <div className="rounded-2xl bg-neutral-50 p-6 text-center text-neutral-600">
+                  <div className="rounded-2xl bg-[#fff7f4] p-6 text-center text-[#6b3b3f]">
                     Učitavanje napomena...
                   </div>
                 ) : dailyNotes.length === 0 ? (
-                  <div className="rounded-2xl bg-neutral-50 p-6 text-center text-neutral-600">
+                  <div className="rounded-2xl bg-[#fff7f4] p-6 text-center text-[#6b3b3f]">
                     Nema napomena za ovaj dan.
                   </div>
                 ) : (
@@ -482,14 +482,14 @@ export default function AdminDailyReportPage() {
                     {dailyNotes.map((note) => (
                       <div
                         key={note.id}
-                        className="rounded-3xl border bg-white p-4"
+                        className="rounded-3xl border border-[#7a1020]/10 bg-white/95 p-4"
                       >
                         <div className="mb-2 flex items-center justify-between gap-3">
                           <div>
-                            <p className="text-sm font-semibold text-neutral-950">
+                            <p className="text-sm font-semibold text-[#24060b]">
                               {note.staff_member_name}
                             </p>
-                            <p className="text-xs text-neutral-500">
+                            <p className="text-xs text-[#8b4a50]">
                               {formatTime(note.created_at)}
                             </p>
                           </div>
@@ -510,7 +510,7 @@ export default function AdminDailyReportPage() {
                           </Button>
                         </div>
 
-                        <p className="text-sm leading-6 text-neutral-700">
+                        <p className="text-sm leading-6 text-[#4f252a]">
                           {note.note}
                         </p>
                       </div>

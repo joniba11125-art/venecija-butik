@@ -78,11 +78,15 @@ export async function POST(request: Request) {
   try {
     const payload = (await request.json()) as ReservationEmailPayload;
 
-    const adminEmail = process.env.ADMIN_EMAIL;
+    const adminEmails = (process.env.ADMIN_EMAIL || "")
+      .split(",")
+      .map((email) => email.trim())
+      .filter(Boolean);
+
     const fromEmail =
       process.env.RESEND_FROM_EMAIL || "Venecija Butik <onboarding@resend.dev>";
 
-    if (!adminEmail) {
+    if (adminEmails.length === 0) {
       return NextResponse.json(
         { error: "ADMIN_EMAIL nije podešen." },
         { status: 500 }
@@ -105,13 +109,16 @@ export async function POST(request: Request) {
 
     const adminResult = await resend.emails.send({
       from: fromEmail,
-      to: adminEmail,
+      to: adminEmails,
       subject: `Nova rezervacija: ${payload.productName}`,
       html: createAdminEmail(payload),
     });
 
     if (adminResult.error) {
-      console.error("Greška pri slanju admin emaila:", adminResult.error);
+      console.error("Greška pri slanju admin emaila:", {
+        adminEmails,
+        error: adminResult.error,
+      });
       results.adminError = adminResult.error.message;
     } else {
       results.adminSent = true;
@@ -120,6 +127,7 @@ export async function POST(request: Request) {
     const customerResult = await resend.emails.send({
       from: fromEmail,
       to: payload.email,
+      bcc: adminEmails,
       subject: `Potvrda rezervacije - Venecija Butik`,
       html: createCustomerEmail(payload),
     });

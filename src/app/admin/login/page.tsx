@@ -39,16 +39,16 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-neutral-50 px-4 py-12">
-      <Card className="w-full max-w-md rounded-3xl border-neutral-200 shadow-sm">
+    <main className="flex min-h-screen items-center justify-center bg-[#fff7f4] px-4 py-12">
+      <Card className="w-full max-w-md rounded-3xl border-[#7a1020]/10 shadow-sm">
         <CardHeader className="space-y-3 text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+          <p className="text-sm uppercase tracking-[0.3em] text-[#8b4a50]">
             Zenski butik
           </p>
           <CardTitle className="text-3xl font-semibold tracking-tight">
             Admin login
           </CardTitle>
-          <p className="text-sm text-neutral-600">
+          <p className="text-sm text-[#6b3b3f]">
             Prijavi se za upravljanje proizvodima i rezervacijama.
           </p>
         </CardHeader>

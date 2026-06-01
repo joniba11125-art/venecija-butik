@@ -51,7 +51,7 @@ function getStatusLabel(status: string) {
 
 function getStatusBadgeClass(status: string) {
   if (status === "novo") {
-    return "bg-blue-50 text-blue-700 ring-blue-100";
+    return "bg-[#fff0ee] text-[#a3152d] ring-blue-100";
   }
 
   if (status === "kontaktirano") {
@@ -62,7 +62,7 @@ function getStatusBadgeClass(status: string) {
     return "bg-green-50 text-green-700 ring-green-100";
   }
 
-  return "bg-neutral-50 text-neutral-700 ring-neutral-100";
+  return "bg-[#fff7f4] text-[#4f252a] ring-neutral-100";
 }
 
 function formatDate(value: string) {
@@ -294,7 +294,7 @@ export default function AdminReservationsPage() {
 
   return (
     <main className="min-h-screen bg-[#101827]">
-      <section className="border-b border-white/10 bg-[#3b0710] px-4 py-6 text-white">
+      <section className="border-b border-white/10 bg-[#4a0611] px-4 py-6 text-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <Button asChild variant="ghost" className="mb-3 px-0 text-white hover:bg-white/10 hover:text-white">
@@ -304,7 +304,7 @@ export default function AdminReservationsPage() {
               </Link>
             </Button>
 
-            <p className="text-sm uppercase tracking-[0.3em] text-white/60">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#8b4a50]">
               Admin
             </p>
 
@@ -314,12 +314,12 @@ export default function AdminReservationsPage() {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <Button variant="outline" className="border-white/20 bg-white/10 text-white hover:bg-white/20 hover:text-white" onClick={loadReservations}>
+            <Button variant="outline" className="border-[#7a1020]/15 bg-white text-[#7a1020] hover:bg-[#fff0ee]" onClick={loadReservations}>
               <RefreshCcw className="mr-2 h-4 w-4" />
               Osvježi
             </Button>
 
-            <Button variant="outline" className="border-white/20 bg-white/10 text-white hover:bg-white/20 hover:text-white" onClick={handleLogout}>
+            <Button variant="outline" className="border-[#7a1020]/15 bg-white text-[#7a1020] hover:bg-[#fff0ee]" onClick={handleLogout}>
               <LogOut className="mr-2 h-4 w-4" />
               Odjava
             </Button>
@@ -332,7 +332,7 @@ export default function AdminReservationsPage() {
           <div className="mb-5 grid gap-4 md:grid-cols-4">
             <Card className="rounded-3xl border-0 shadow-sm">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm text-neutral-500">
+                <CardTitle className="text-sm text-[#8b4a50]">
                   Sve rezervacije
                 </CardTitle>
                 <ShoppingBag className="h-5 w-5 text-neutral-400" />
@@ -344,7 +344,7 @@ export default function AdminReservationsPage() {
 
             <Card className="rounded-3xl border-0 shadow-sm">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm text-neutral-500">Nove</CardTitle>
+                <CardTitle className="text-sm text-[#8b4a50]">Nove</CardTitle>
                 <Clock3 className="h-5 w-5 text-blue-500" />
               </CardHeader>
               <CardContent>
@@ -360,7 +360,7 @@ export default function AdminReservationsPage() {
 
             <Card className="rounded-3xl border-0 shadow-sm">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm text-neutral-500">
+                <CardTitle className="text-sm text-[#8b4a50]">
                   Kontaktirano
                 </CardTitle>
                 <Phone className="h-5 w-5 text-amber-600" />
@@ -378,7 +378,7 @@ export default function AdminReservationsPage() {
 
             <Card className="rounded-3xl border-0 shadow-sm">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm text-neutral-500">
+                <CardTitle className="text-sm text-[#8b4a50]">
                   Završene
                 </CardTitle>
                 <CheckCircle2 className="h-5 w-5 text-green-600" />
@@ -404,7 +404,7 @@ export default function AdminReservationsPage() {
                     value={searchTerm}
                     onChange={(event) => setSearchTerm(event.target.value)}
                     placeholder="Pretraži po kupcu, telefonu, emailu, proizvodu ili šifri..."
-                    className="h-12 w-full rounded-full border bg-white pl-11 pr-4 text-sm outline-none focus:border-neutral-950"
+                    className="h-12 w-full rounded-full border bg-white pl-11 pr-4 text-sm outline-none focus:border-[#7a1020]"
                   />
                 </div>
 
@@ -416,8 +416,8 @@ export default function AdminReservationsPage() {
                       onClick={() => setStatusFilter(status.value)}
                       className={
                         statusFilter === status.value
-                          ? "rounded-full bg-neutral-950 px-4 py-2 text-sm font-semibold text-white"
-                          : "rounded-full border bg-white px-4 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-50"
+                          ? "rounded-full bg-[#fff7f4] px-4 py-2 text-sm font-semibold text-white"
+                          : "rounded-full border bg-white px-4 py-2 text-sm font-semibold text-[#4f252a] hover:bg-[#fff7f4]"
                       }
                     >
                       {status.label}
@@ -435,11 +435,11 @@ export default function AdminReservationsPage() {
           ) : null}
 
           {isLoading ? (
-            <div className="rounded-3xl bg-white p-10 text-center text-neutral-600 shadow-sm">
+            <div className="rounded-3xl bg-white p-10 text-center text-[#6b3b3f] shadow-sm">
               Učitavanje rezervacija...
             </div>
           ) : filteredReservations.length === 0 ? (
-            <div className="rounded-3xl bg-white p-10 text-center text-neutral-600 shadow-sm">
+            <div className="rounded-3xl bg-white p-10 text-center text-[#6b3b3f] shadow-sm">
               Nema rezervacija za odabrane filtere.
             </div>
           ) : (
@@ -461,65 +461,65 @@ export default function AdminReservationsPage() {
                         </span>
 
                         {reservation.product_code ? (
-                          <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700">
+                          <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-[#4f252a]">
                             {reservation.product_code}
                           </span>
                         ) : null}
 
-                        <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs text-neutral-500">
+                        <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs text-[#8b4a50]">
                           {formatDate(reservation.created_at)} u{" "}
                           {formatTime(reservation.created_at)}
                         </span>
                       </div>
 
-                      <h2 className="mt-4 text-xl font-semibold text-neutral-950">
+                      <h2 className="mt-4 text-xl font-semibold text-[#24060b]">
                         {reservation.product_name}
                       </h2>
 
-                      <div className="mt-4 grid gap-3 text-sm text-neutral-600 md:grid-cols-2 xl:grid-cols-4">
-                        <div className="rounded-2xl bg-neutral-50 p-3">
+                      <div className="mt-4 grid gap-3 text-sm text-[#6b3b3f] md:grid-cols-2 xl:grid-cols-4">
+                        <div className="rounded-2xl bg-[#fff7f4] p-3">
                           <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-neutral-400">
                             <UserRound className="h-3.5 w-3.5" />
                             Kupac
                           </div>
-                          <p className="font-medium text-neutral-950">
+                          <p className="font-medium text-[#24060b]">
                             {reservation.first_name} {reservation.last_name}
                           </p>
                         </div>
 
-                        <div className="rounded-2xl bg-neutral-50 p-3">
+                        <div className="rounded-2xl bg-[#fff7f4] p-3">
                           <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-neutral-400">
                             <Phone className="h-3.5 w-3.5" />
                             Telefon
                           </div>
-                          <p className="font-medium text-neutral-950">
+                          <p className="font-medium text-[#24060b]">
                             {reservation.phone}
                           </p>
                         </div>
 
-                        <div className="rounded-2xl bg-neutral-50 p-3">
+                        <div className="rounded-2xl bg-[#fff7f4] p-3">
                           <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-neutral-400">
                             <Mail className="h-3.5 w-3.5" />
                             Email
                           </div>
-                          <p className="break-all font-medium text-neutral-950">
+                          <p className="break-all font-medium text-[#24060b]">
                             {reservation.email}
                           </p>
                         </div>
 
-                        <div className="rounded-2xl bg-neutral-50 p-3">
+                        <div className="rounded-2xl bg-[#fff7f4] p-3">
                           <div className="mb-1 text-xs uppercase tracking-[0.15em] text-neutral-400">
                             Veličina
                           </div>
-                          <p className="font-medium text-neutral-950">
+                          <p className="font-medium text-[#24060b]">
                             {reservation.selected_size ?? "-"}
                           </p>
                         </div>
                       </div>
 
                       {reservation.message ? (
-                        <div className="mt-3 rounded-2xl border border-amber-100 bg-amber-50/60 p-4 text-sm leading-6 text-neutral-700">
-                          <span className="font-semibold text-neutral-950">
+                        <div className="mt-3 rounded-2xl border border-amber-100 bg-amber-50/60 p-4 text-sm leading-6 text-[#4f252a]">
+                          <span className="font-semibold text-[#24060b]">
                             Napomena kupca:
                           </span>{" "}
                           {reservation.message}

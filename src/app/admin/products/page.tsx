@@ -900,8 +900,8 @@ export default function AdminProductsPage() {
   }, []);
 
   return (
-    <main className="admin-products-page min-h-screen bg-transparent">
-      <section className="border-b border-white/10 bg-[#3b0710] px-4 py-6 text-white">
+    <main className="admin-products-page min-h-screen bg-[#fff7f4]">
+      <section className="border-b border-white/10 bg-[#4a0611] px-4 py-6 text-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <Button asChild variant="ghost" className="mb-3 px-0 text-white hover:bg-white/10 hover:text-white">
@@ -911,7 +911,7 @@ export default function AdminProductsPage() {
               </Link>
             </Button>
 
-            <p className="text-sm uppercase tracking-[0.3em] text-white/60">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#8b4a50]">
               Admin
             </p>
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-white">
@@ -919,7 +919,7 @@ export default function AdminProductsPage() {
             </h1>
           </div>
 
-          <Button variant="outline" className="border-white/20 bg-white/10 text-white hover:bg-white/20 hover:text-white" onClick={loadProducts}>
+          <Button variant="outline" className="border-[#7a1020]/15 bg-white text-[#7a1020] hover:bg-[#fff0ee]" onClick={loadProducts}>
             <RefreshCcw className="mr-2 h-4 w-4" />
             Osvježi
           </Button>
@@ -974,7 +974,7 @@ export default function AdminProductsPage() {
                         ))}
                       </div>
 
-                      <p className="mt-2 text-xs text-neutral-500">
+                      <p className="mt-2 text-xs text-[#8b4a50]">
                         Možeš označiti više kategorija za isti proizvod.
                       </p>
                     </div>
@@ -1068,7 +1068,7 @@ export default function AdminProductsPage() {
                           ? selectedColors.join(", ")
                           : "Odaberi boje"}
                       </span>
-                      <span className="text-xs text-neutral-500">
+                      <span className="text-xs text-[#8b4a50]">
                         {selectedColors.length} označeno
                       </span>
                     </summary>
@@ -1077,7 +1077,7 @@ export default function AdminProductsPage() {
                       {colorOptions.map((item) => (
                         <label
                           key={item}
-                          className="flex cursor-pointer items-center gap-2 rounded-xl bg-neutral-50 px-3 py-2 text-sm"
+                          className="flex cursor-pointer items-center gap-2 rounded-xl bg-[#fff7f4] px-3 py-2 text-sm"
                         >
                           <input
                             type="checkbox"
@@ -1099,7 +1099,7 @@ export default function AdminProductsPage() {
                     Slike
                   </label>
 
-                  <div className="rounded-2xl border bg-neutral-50 p-4">
+                  <div className="rounded-2xl border bg-[#fff7f4] p-4">
                     {previewImages.length > 0 ? (
                       <div className="mb-4 grid grid-cols-2 gap-3">
                         {previewImages.map((image, index) => (
@@ -1113,14 +1113,14 @@ export default function AdminProductsPage() {
                               className="h-32 w-full object-cover"
                             />
 
-                            <div className="absolute left-2 top-2 rounded-full bg-white px-2 py-1 text-xs font-medium text-neutral-800">
+                            <div className="absolute left-2 top-2 rounded-full bg-white px-2 py-1 text-xs font-medium text-[#3a1016]">
                               {index === 0 ? "Glavna" : `Slika ${index + 1}`}
                             </div>
 
                             <button
                               type="button"
                               onClick={() => removePreviewImage(image.id)}
-                              className="absolute right-2 top-2 rounded-full bg-white p-1 text-neutral-800 shadow-sm"
+                              className="absolute right-2 top-2 rounded-full bg-white p-1 text-[#3a1016] shadow-sm"
                             >
                               <X className="h-4 w-4" />
                             </button>
@@ -1130,11 +1130,11 @@ export default function AdminProductsPage() {
                     ) : null}
 
                     <label className="flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed bg-white p-6 text-center">
-                      <ImagePlus className="mb-2 h-6 w-6 text-neutral-500" />
-                      <span className="text-sm font-medium text-neutral-800">
+                      <ImagePlus className="mb-2 h-6 w-6 text-[#8b4a50]" />
+                      <span className="text-sm font-medium text-[#3a1016]">
                         Klikni za upload slika
                       </span>
-                      <span className="mt-1 text-xs text-neutral-500">
+                      <span className="mt-1 text-xs text-[#8b4a50]">
                         Možeš odabrati više slika odjednom. Slike se automatski cropuju i optimizuju.
                       </span>
                       <input
@@ -1228,11 +1228,11 @@ export default function AdminProductsPage() {
 
             <CardContent>
               {isLoading ? (
-                <div className="rounded-2xl bg-neutral-50 p-6 text-center text-neutral-600">
+                <div className="rounded-2xl bg-[#fff7f4] p-6 text-center text-[#6b3b3f]">
                   učitavanje proizvoda...
                 </div>
               ) : products.length === 0 ? (
-                <div className="rounded-2xl bg-neutral-50 p-6 text-center text-neutral-600">
+                <div className="rounded-2xl bg-[#fff7f4] p-6 text-center text-[#6b3b3f]">
                   Još nema proizvoda.
                 </div>
               ) : (
@@ -1244,7 +1244,7 @@ export default function AdminProductsPage() {
                     return (
                       <div
                         key={product.id}
-                        className="grid gap-4 rounded-3xl border bg-white p-4 md:grid-cols-[90px_1fr_auto]"
+                        className="grid gap-4 rounded-3xl border border-[#7a1020]/10 bg-white/95 p-4 md:grid-cols-[90px_1fr_auto]"
                       >
                         <div className="h-24 overflow-hidden rounded-2xl bg-neutral-100">
                           {image ? (
@@ -1262,41 +1262,41 @@ export default function AdminProductsPage() {
 
                         <div>
                           <div className="flex flex-wrap items-center gap-2">
-                            <h2 className="text-lg font-semibold text-neutral-950">
+                            <h2 className="text-lg font-semibold text-[#24060b]">
                               {product.name}
                             </h2>
                             <span
                               className={
                                 product.is_active
                                   ? "rounded-full bg-green-100 px-3 py-1 text-xs text-green-700"
-                                  : "rounded-full bg-neutral-200 px-3 py-1 text-xs text-neutral-700"
+                                  : "rounded-full bg-neutral-200 px-3 py-1 text-xs text-[#4f252a]"
                               }
                             >
                               {product.is_active ? "Aktivan" : "Sakriven"}
                             </span>
                           </div>
 
-                          <p className="mt-1 text-sm text-neutral-600">
+                          <p className="mt-1 text-sm text-[#6b3b3f]">
                             {(product.categories && product.categories.length > 0 ? product.categories.join(', ') : product.category)} / {product.price.toFixed(2)} KM
                           </p>
 
-                          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
+                          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#8b4a50]">
                             Šifra: {product.product_code ?? "-"}
                           </p>
 
-                          <p className="mt-2 line-clamp-2 text-sm text-neutral-500">
+                          <p className="mt-2 line-clamp-2 text-sm text-[#8b4a50]">
                             {product.description ?? "Bez opisa"}
                           </p>
 
-                          <p className="mt-2 text-xs text-neutral-500">
+                          <p className="mt-2 text-xs text-[#8b4a50]">
                             Velicine: {(product.sizes ?? []).join(", ") || "-"}
                           </p>
 
-                          <p className="mt-1 text-xs text-neutral-500">
+                          <p className="mt-1 text-xs text-[#8b4a50]">
                             Boje: {(product.colors ?? []).join(", ") || "-"}
                           </p>
 
-                          <p className="mt-1 text-xs text-neutral-500">
+                          <p className="mt-1 text-xs text-[#8b4a50]">
                             Slike: {imageCount}
                           </p>
                         </div>
