@@ -76,7 +76,7 @@ export function StaffSelector() {
   }
 
   return (
-    <Card className="mb-6 rounded-3xl border-neutral-200 bg-white">
+    <Card className="rounded-3xl border-[#7a1020]/10 bg-white">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle>Ko danas radi?</CardTitle>
         <UserRound className="h-5 w-5 text-neutral-500" />

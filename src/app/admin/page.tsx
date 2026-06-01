@@ -323,7 +323,7 @@ export default function AdminDashboardPage() {
             </div>
           </div>
 
-          <div className="mt-5 overflow-hidden rounded-[1.6rem] border border-[#7a1020]/10 bg-white shadow-[0_14px_40px_rgba(122,16,32,0.07)]">
+          <div className="mt-5">
             <StaffSelector />
           </div>
 
