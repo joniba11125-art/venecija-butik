@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 function getResendClient() {
@@ -19,24 +19,24 @@ type ReservationEmailPayload = {
   lastName: string;
   phone: string;
   email: string;
-  message: string
+  message: string;
   address?: string | null;
 };
 
 function createAdminEmail(payload: ReservationEmailPayload) {
   return `
     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111;">
-      <h1>Nova Rezervacija</h1>
-      <p>Stigla je nova Rezervacija iz webshopa.</p>
+      <h1>Nova rezervacija</h1>
+      <p>Stigla je nova rezervacija iz Venecija Butik webshopa.</p>
 
       <h2>Proizvod</h2>
       <p><strong>Naziv:</strong> ${payload.productName}</p>
       <p><strong>Šifra artikla:</strong> ${payload.productCode || "-"}</p>
-      <p><strong>Velicina:</strong> ${payload.selectedSize || "-"}</p>
+      <p><strong>Veličina:</strong> ${payload.selectedSize || "-"}</p>
 
       <h2>Kupac</h2>
       <p><strong>Ime:</strong> ${payload.firstName} ${payload.lastName}</p>
-      <p><strong>Adresa:</strong> ${payload.address || 'Nije unesena'}</p>
+      <p><strong>Adresa:</strong> ${payload.address || "Nije unesena"}</p>
       <p><strong>Telefon:</strong> ${payload.phone}</p>
       <p><strong>Email:</strong> ${payload.email}</p>
 
@@ -53,45 +53,38 @@ function createCustomerEmail(payload: ReservationEmailPayload) {
 
       <p>Poštovana/i ${payload.firstName},</p>
 
-      <p>Hvala na rezervaciji. Zaprimili smo tvoj zahtjev i uskoro ćemo te kontaktirati za potvrdu.</p>
+      <p>Hvala na rezervaciji. Zaprimili smo vaš zahtjev i uskoro ćemo vas kontaktirati za potvrdu.</p>
 
       <h2>Detalji rezervacije</h2>
       <p><strong>Proizvod:</strong> ${payload.productName}</p>
       <p><strong>Šifra artikla:</strong> ${payload.productCode || "-"}</p>
-      <p><strong>Velicina:</strong> ${payload.selectedSize || "-"}</p>
+      <p><strong>Veličina:</strong> ${payload.selectedSize || "-"}</p>
 
-      <p style="margin-top: 24px;">ženski Butik</p>
+      <p style="margin-top: 24px;">Venecija Butik</p>
     </div>
   `;
 }
 
 export async function POST(request: Request) {
-  
   const resend = getResendClient();
 
   if (!resend) {
-    return Response.json(
+    return NextResponse.json(
       { error: "RESEND_API_KEY nije podešen." },
       { status: 500 }
     );
   }
 
-try {
+  try {
     const payload = (await request.json()) as ReservationEmailPayload;
 
     const adminEmail = process.env.ADMIN_EMAIL;
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "ženski Butik <onboarding@resend.dev>";
-
-    if (!process.env.RESEND_API_KEY) {
-      return NextResponse.json(
-        { error: "RESEND_API_KEY nije podesen." },
-        { status: 500 }
-      );
-    }
+    const fromEmail =
+      process.env.RESEND_FROM_EMAIL || "Venecija Butik <onboarding@resend.dev>";
 
     if (!adminEmail) {
       return NextResponse.json(
-        { error: "ADMIN_EMAIL nije podesen." },
+        { error: "ADMIN_EMAIL nije podešen." },
         { status: 500 }
       );
     }
@@ -103,27 +96,54 @@ try {
       );
     }
 
+    const results = {
+      adminSent: false,
+      customerSent: false,
+      adminError: null as string | null,
+      customerError: null as string | null,
+    };
+
     const adminResult = await resend.emails.send({
       from: fromEmail,
       to: adminEmail,
-      subject: `Nova Rezervacija: ${payload.productName}`,
+      subject: `Nova rezervacija: ${payload.productName}`,
       html: createAdminEmail(payload),
     });
+
+    if (adminResult.error) {
+      console.error("Greška pri slanju admin emaila:", adminResult.error);
+      results.adminError = adminResult.error.message;
+    } else {
+      results.adminSent = true;
+    }
 
     const customerResult = await resend.emails.send({
       from: fromEmail,
       to: payload.email,
-      subject: "Potvrda rezervacije - ženski Butik",
+      subject: `Potvrda rezervacije - Venecija Butik`,
       html: createCustomerEmail(payload),
     });
 
+    if (customerResult.error) {
+      console.error("Greška pri slanju customer emaila:", customerResult.error);
+      results.customerError = customerResult.error.message;
+    } else {
+      results.customerSent = true;
+    }
+
+    if (!results.adminSent && !results.customerSent) {
+      return NextResponse.json(
+        { error: "Email nije poslan.", results },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json({
       success: true,
-      adminResult,
-      customerResult,
+      results,
     });
   } catch (error) {
-    console.error("Greska pri slanju emaila:", error);
+    console.error("Greška pri slanju emaila:", error);
 
     return NextResponse.json(
       { error: "Email nije poslan." },
@@ -131,5 +151,3 @@ try {
     );
   }
 }
-
-
