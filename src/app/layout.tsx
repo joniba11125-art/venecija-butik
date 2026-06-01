@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     "kompleti",
     "boutique",
   ],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/icon.png",
+  },
+
   openGraph: {
     title: "Venecija butik",
     description:
