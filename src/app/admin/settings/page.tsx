@@ -96,7 +96,7 @@ export default function AdminSettingsPage() {
       .from("site_settings")
       .select("value")
       .eq("key", "hero_image_url")
-      .single();
+      .maybeSingle();
 
     if (error) {
       console.error("Greška pri učitavanju postavki:", error.message);
@@ -195,11 +195,16 @@ export default function AdminSettingsPage() {
       const oldHeroImageUrl = heroImageUrl;
       const finalImageUrl = await uploadHeroImage();
 
-      const { error } = await supabase.from("site_settings").upsert({
-        key: "hero_image_url",
-        value: finalImageUrl,
-        updated_at: new Date().toISOString(),
-      });
+      const { error } = await supabase
+        .from("site_settings")
+        .upsert(
+          {
+            key: "hero_image_url",
+            value: finalImageUrl,
+            updated_at: new Date().toISOString(),
+          },
+          { onConflict: "key" }
+        );
 
       if (error) {
         console.error("Greška pri čuvanju postavki:", error.message);

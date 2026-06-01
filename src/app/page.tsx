@@ -3,6 +3,8 @@ import { Hero } from "@/components/shop/Hero";
 import { FeaturedProducts } from "@/components/shop/FeaturedProducts";
 import { Testimonials } from "@/components/shop/Testimonials";
 import { PromoPopup } from "@/components/shop/PromoPopup";
+import { ReviewsSection } from "@/components/shop/ReviewsSection";
+import { FaqAccordion } from "@/components/shop/FaqAccordion";
 
 function GoldDivider() {
   return (
@@ -45,43 +47,7 @@ function FAQSection() {
   ];
 
   return (
-    <section id="faq" className="bg-[#fff7f4] px-4 py-10 md:py-16">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-7 text-center">
-          <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#3b0710] text-white">
-            <HelpCircle className="h-5 w-5" />
-          </div>
-
-          <p className="mb-2 text-xs uppercase tracking-[0.3em] text-[#b0182f]">
-            FAQ
-          </p>
-
-          <h2 className="text-2xl font-semibold tracking-tight text-[#24060b] md:text-5xl">
-            Pitanja prije rezervacije
-          </h2>
-
-          <p className="mx-auto mt-3 max-w-2xl text-sm text-[#6b3b3f] md:text-base">
-            Sve najvažnije informacije o rezervaciji, slanju brzom poštom i lokacijama butika.
-          </p>
-        </div>
-
-        <div className="grid gap-2.5 md:gap-4 md:grid-cols-2">
-          {questions.map((item) => (
-            <div
-              key={item.question}
-              className="rounded-2xl border border-[#7a1020]/10 bg-[#fff7f4] p-3.5 shadow-sm md:p-6"
-            >
-              <h3 className="text-sm font-semibold text-[#24060b] md:text-lg">
-                {item.question}
-              </h3>
-              <p className="mt-1.5 text-xs leading-5 text-[#6b3b3f] md:text-sm md:leading-6">
-                {item.answer}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+          <FaqAccordion />
   );
 }
 
