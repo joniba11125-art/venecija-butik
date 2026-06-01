@@ -182,7 +182,7 @@ export default function AdminDashboardPage() {
 
   return (
     <main className="min-h-screen bg-[#fff7f4] text-[#24060b]">
-      <section className="relative overflow-hidden border-b border-[#7a1020]/10 bg-[#3b0710] px-4 py-8 text-white">
+      <section className="relative overflow-hidden border-b border-[#7a1020]/10 bg-[#3b0710] px-4 py-6 text-white">
         <div className="absolute left-[-8rem] top-[-10rem] h-80 w-80 rounded-full bg-[#b0182f]/30 blur-3xl" />
         <div className="absolute right-[-8rem] bottom-[-12rem] h-96 w-96 rounded-full bg-white/10 blur-3xl" />
 
@@ -193,7 +193,7 @@ export default function AdminDashboardPage() {
                 Venecija butik
               </p>
 
-              <h1 className="mt-3 text-4xl font-black tracking-[-0.05em] text-white md:text-5xl">
+              <h1 className="mt-3 text-3xl font-black tracking-[-0.05em] text-white md:text-4xl">
                 Admin centar
               </h1>
 
@@ -227,11 +227,11 @@ export default function AdminDashboardPage() {
 
               <Button
                 asChild
-                className="rounded-full bg-white text-[#3b0710] hover:bg-rose-100"
+                className="rounded-full bg-white px-5 font-bold text-[#3b0710] hover:bg-rose-100"
               >
                 <Link href="/" target="_blank">
-                  <ArrowUpRight className="mr-2 h-4 w-4" />
-                  Pogledaj sajt
+                  <ArrowUpRight className="mr-2 h-4 w-4 text-[#3b0710]" />
+                  <span className="text-[#3b0710]">Pogledaj sajt</span>
                 </Link>
               </Button>
             </div>
@@ -239,7 +239,7 @@ export default function AdminDashboardPage() {
         </div>
       </section>
 
-      <section className="px-4 py-8 md:py-10">
+      <section className="px-4 py-6 md:py-8">
         <div className="mx-auto max-w-7xl">
           {errorMessage ? (
             <div className="mb-6 rounded-[1.5rem] border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700">
@@ -327,11 +327,11 @@ export default function AdminDashboardPage() {
             </div>
           </div>
 
-          <div className="mt-5 overflow-hidden rounded-[2rem] border border-[#7a1020]/10 bg-white shadow-[0_20px_60px_rgba(122,16,32,0.08)]">
+          <div className="mt-5 overflow-hidden rounded-[1.6rem] border border-[#7a1020]/10 bg-white shadow-[0_14px_40px_rgba(122,16,32,0.07)]">
             <StaffSelector />
           </div>
 
-          <div className="mt-10">
+          <div className="mt-7">
             <div className="mb-5">
               <p className="text-xs font-black uppercase tracking-[0.32em] text-[#a3152d]">
                 Navigacija
@@ -349,7 +349,7 @@ export default function AdminDashboardPage() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group rounded-[2rem] border border-[#7a1020]/10 bg-white p-5 shadow-[0_16px_45px_rgba(122,16,32,0.07)] transition hover:-translate-y-1 hover:border-[#7a1020]/25 hover:shadow-[0_24px_65px_rgba(122,16,32,0.14)]"
+                    className="group rounded-[1.6rem] border border-[#7a1020]/10 bg-white p-4 shadow-[0_16px_45px_rgba(122,16,32,0.07)] transition hover:-translate-y-1 hover:border-[#7a1020]/25 hover:shadow-[0_24px_65px_rgba(122,16,32,0.14)]"
                   >
                     <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fff0ee] text-[#7a1020] transition group-hover:bg-[#7a1020] group-hover:text-white">
                       <Icon className="h-6 w-6" />
@@ -362,7 +362,7 @@ export default function AdminDashboardPage() {
                       <ArrowUpRight className="mt-1 h-4 w-4 text-[#b0182f] opacity-0 transition group-hover:opacity-100" />
                     </div>
 
-                    <p className="mt-3 min-h-16 text-sm leading-6 text-[#6b3b3f]">
+                    <p className="mt-3 min-h-12 text-sm leading-6 text-[#6b3b3f]">
                       {item.description}
                     </p>
 
