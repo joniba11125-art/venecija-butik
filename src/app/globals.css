@@ -135,7 +135,7 @@ html {
 }
 /* Admin theme */
 .admin-shell main {
-  background: #101827 !important;
+  background: #fff7f4 !important;
 }
 
 .admin-shell main > section:first-child {
