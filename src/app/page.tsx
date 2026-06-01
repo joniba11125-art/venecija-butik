@@ -22,12 +22,12 @@ function FAQSection() {
         "Odaberete proizvod i veličinu, pošaljete rezervaciju, a butik vas kontaktira za potvrdu narudžbe putem telefona ili emaila.",
     },
     {
-      question: "Koliko košta slanje?",
-      answer: "Slanje brzom poštom u BiH iznosi 11,00 KM.",
+      question: "Kako se šalje roba?",
+      answer: "Robu šaljemo brzom poštom. Za detalje i potvrdu kontaktiramo vas nakon rezervacije.",
     },
     {
       question: "Koliko traje isporuka?",
-      answer: "Isporuka traje 1-3 radna dana, zavisno od lokacije.",
+      answer: "Vrijeme isporuke zavisi od lokacije i dogovora nakon potvrde rezervacije.",
     },
     {
       question: "Da li je dozvoljeno otvaranje paketa?",
@@ -45,7 +45,7 @@ function FAQSection() {
   ];
 
   return (
-    <section id="faq" className="bg-white px-4 py-10 md:py-16">
+    <section id="faq" className="bg-[#fff7f4] px-4 py-10 md:py-16">
       <div className="mx-auto max-w-7xl">
         <div className="mb-7 text-center">
           <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#3b0710] text-white">
@@ -56,12 +56,12 @@ function FAQSection() {
             FAQ
           </p>
 
-          <h2 className="text-2xl font-semibold tracking-tight text-neutral-950 md:text-5xl">
-            Česta pitanja
+          <h2 className="text-2xl font-semibold tracking-tight text-[#24060b] md:text-5xl">
+            Pitanja prije rezervacije
           </h2>
 
-          <p className="mx-auto mt-3 max-w-2xl text-sm text-neutral-600 md:text-base">
-            Najvažnije informacije o rezervacijama, dostavi, zamjenama i lokaciji butika.
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-[#6b3b3f] md:text-base">
+            Sve najvažnije informacije o rezervaciji, slanju brzom poštom i lokacijama butika.
           </p>
         </div>
 
@@ -69,12 +69,12 @@ function FAQSection() {
           {questions.map((item) => (
             <div
               key={item.question}
-              className="rounded-2xl border border-neutral-200 bg-[#fff7f4] p-3.5 shadow-sm md:p-6"
+              className="rounded-2xl border border-[#7a1020]/10 bg-[#fff7f4] p-3.5 shadow-sm md:p-6"
             >
-              <h3 className="text-sm font-semibold text-neutral-950 md:text-lg">
+              <h3 className="text-sm font-semibold text-[#24060b] md:text-lg">
                 {item.question}
               </h3>
-              <p className="mt-1.5 text-xs leading-5 text-neutral-600 md:text-sm md:leading-6">
+              <p className="mt-1.5 text-xs leading-5 text-[#6b3b3f] md:text-sm md:leading-6">
                 {item.answer}
               </p>
             </div>

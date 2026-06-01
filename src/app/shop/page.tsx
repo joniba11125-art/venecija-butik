@@ -253,14 +253,14 @@ export default function ShopPage() {
                   value={searchTerm}
                   onChange={(event) => setSearchTerm(event.target.value)}
                   placeholder="Pretraži proizvode..."
-                  className="h-12 w-full rounded-full border bg-white pl-11 pr-4 text-sm outline-none focus:border-neutral-950"
+                  className="h-12 w-full rounded-full border border-[#7a1020]/10 bg-[#fff7f4] pl-11 pr-4 text-sm outline-none focus:border-[#7a1020]"
                 />
               </div>
 
               <select
                 value={selectedCategory}
                 onChange={(event) => setSelectedCategory(event.target.value)}
-                className="h-12 rounded-full border bg-white px-4 text-sm outline-none focus:border-neutral-950"
+                className="h-12 rounded-full border border-[#7a1020]/10 bg-[#fff7f4] px-4 text-sm outline-none focus:border-[#7a1020]"
               >
                 <option value="all">Sve kategorije</option>
                 {categories.map((category) => (
@@ -273,7 +273,7 @@ export default function ShopPage() {
               <select
                 value={selectedSize}
                 onChange={(event) => setSelectedSize(event.target.value)}
-                className="h-12 rounded-full border bg-white px-4 text-sm outline-none focus:border-neutral-950"
+                className="h-12 rounded-full border border-[#7a1020]/10 bg-[#fff7f4] px-4 text-sm outline-none focus:border-[#7a1020]"
               >
                 <option value="all">Sve veličine</option>
                 {sizes.map((size) => (
@@ -286,7 +286,7 @@ export default function ShopPage() {
               <select
                 value={selectedColor}
                 onChange={(event) => setSelectedColor(event.target.value)}
-                className="h-12 rounded-full border bg-white px-4 text-sm outline-none focus:border-neutral-950"
+                className="h-12 rounded-full border border-[#7a1020]/10 bg-[#fff7f4] px-4 text-sm outline-none focus:border-[#7a1020]"
               >
                 <option value="all">Sve boje</option>
                 {colors.map((color) => (
@@ -299,7 +299,7 @@ export default function ShopPage() {
               <select
                 value={selectedPriceRange}
                 onChange={(event) => setSelectedPriceRange(event.target.value)}
-                className="h-12 rounded-full border bg-white px-4 text-sm outline-none focus:border-neutral-950"
+                className="h-12 rounded-full border border-[#7a1020]/10 bg-[#fff7f4] px-4 text-sm outline-none focus:border-[#7a1020]"
               >
                 {priceOptions.map((priceOption) => (
                   <option key={priceOption.value} value={priceOption.value}>
@@ -311,7 +311,7 @@ export default function ShopPage() {
               <button
                 type="button"
                 onClick={resetFilters}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-neutral-950 px-5 text-sm font-semibold text-[#2a0308] hover:bg-neutral-800"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-neutral-950 px-5 text-sm font-semibold text-[#2a0308] hover:bg-[#4b0711]"
               >
                 <SlidersHorizontal className="h-4 w-4" />
                 Reset
@@ -320,9 +320,9 @@ export default function ShopPage() {
           </div>
 
           <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-neutral-600">
+            <p className="text-sm text-[#6b3b3f]">
               Prikazano:{" "}
-              <span className="font-semibold text-neutral-950">
+              <span className="font-semibold text-[#24060b]">
                 {filteredProducts.length}
               </span>{" "}
               proizvoda
@@ -334,11 +334,11 @@ export default function ShopPage() {
           </div>
 
           {isLoading ? (
-            <div className="rounded-3xl border bg-white p-10 text-center text-neutral-600">
+            <div className="rounded-3xl border bg-white p-10 text-center text-[#6b3b3f]">
               Učitavanje proizvoda...
             </div>
           ) : filteredProducts.length === 0 ? (
-            <div className="rounded-3xl border bg-white p-10 text-center text-neutral-600">
+            <div className="rounded-3xl border bg-white p-10 text-center text-[#6b3b3f]">
               Nema proizvoda za odabrane filtere.
             </div>
           ) : (
