@@ -45,7 +45,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <Link
           href="/"
           target="_blank"
-          className="fixed bottom-5 right-5 z-[70] hidden items-center gap-2 rounded-full border bg-[#3b0710] px-5 py-3 text-sm font-semibold text-white shadow-2xl transition hover:bg-[#0b2052] md:flex"
+          className="fixed bottom-5 right-5 z-[70] hidden items-center gap-2 rounded-full border border-[#7a1020]/20 bg-[#7a1020] px-5 py-3 text-sm font-bold text-white shadow-2xl shadow-red-950/20 transition hover:-translate-y-0.5 hover:bg-[#4b0711] md:flex"
         >
           <ExternalLink className="h-4 w-4" />
           Pogledaj sajt
@@ -56,7 +56,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <Link
           href="/"
           target="_blank"
-          className="fixed bottom-5 right-5 z-[70] flex h-12 w-12 items-center justify-center rounded-full bg-[#3b0710] text-white shadow-2xl md:hidden"
+          className="fixed bottom-5 right-5 z-[70] flex h-12 w-12 items-center justify-center rounded-full bg-[#7a1020] text-white shadow-2xl shadow-red-950/20 md:hidden"
           aria-label="Pogledaj sajt"
         >
           <ExternalLink className="h-5 w-5" />
