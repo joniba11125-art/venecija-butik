@@ -40,7 +40,7 @@ export function Header() {
 
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
         <Link href="/" className="flex shrink-0 items-center gap-3">
-          <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-[#7a1020] shadow-lg shadow-red-950/20">
+          <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden  bg-[#7a1020]  shadow-red-950/20">
             <Image
               src="/logo.png"
               alt="Venecija butik"
@@ -83,7 +83,7 @@ export function Header() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={item.name}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-red-950/15 bg-white text-[#7a1020] shadow-sm transition hover:-translate-y-0.5 hover:bg-[#7a1020] hover:text-white"
+                className="flex h-10 w-10 items-center justify-center  border-red-950/15 bg-transparent text-[#7a1020] shadow-sm transition hover:-translate-y-0.5 hover:bg-[#7a1020] hover:text-white"
               >
                 <Icon className="h-4 w-4" />
               </a>
@@ -92,7 +92,7 @@ export function Header() {
 
           <Button
             asChild
-            className="rounded-full bg-[#7a1020] px-5 text-white shadow-lg shadow-red-950/20 transition hover:-translate-y-0.5 hover:bg-[#4b0711]"
+            className="rounded-full bg-[#7a1020] px-5 text-white  shadow-red-950/20 transition hover:-translate-y-0.5 hover:bg-[#4b0711]"
           >
             <Link href="/shop">
               <ShoppingBag className="mr-2 h-4 w-4" />
@@ -111,7 +111,7 @@ export function Header() {
 
           <button
             type="button"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-red-950/15 bg-white text-[#7a1020]"
+            className="flex h-11 w-11 items-center justify-center  border-red-950/15 bg-transparent text-[#7a1020]"
             onClick={() => setIsOpen((current) => !current)}
             aria-label="Otvori meni"
           >
@@ -121,7 +121,7 @@ export function Header() {
       </div>
 
       {isOpen ? (
-        <div className="border-t border-red-950/10 bg-white px-4 py-5 md:hidden">
+        <div className="border-t border-red-950/10 bg-transparent px-4 py-5 md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-4">
             {navigation.map((item) => (
               <Link
@@ -145,7 +145,7 @@ export function Header() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={item.name}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border text-[#7a1020]"
+                    className="flex h-10 w-10 items-center justify-center  text-[#7a1020]"
                   >
                     <Icon className="h-4 w-4" />
                   </a>
