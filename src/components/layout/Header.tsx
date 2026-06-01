@@ -42,7 +42,7 @@ export function Header() {
         <Link href="/" className="flex shrink-0 items-center gap-3">
           <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-[#7a1020] shadow-lg shadow-red-950/20">
             <Image
-              src="/boutique-logo.png"
+              src="/logo.png"
               alt="Venecija butik"
               fill
               className="object-contain p-2"
