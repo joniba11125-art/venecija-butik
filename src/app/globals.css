@@ -255,3 +255,38 @@ html {
     transform: translateY(0) scale(1);
   }
 }
+
+
+/* VENECIJA MOBILE FIX: prevent horizontal page drift */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+}
+
+#__next,
+main,
+section {
+  max-width: 100vw;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  .venecija-no-x-scroll {
+    overflow-x: hidden;
+  }
+}

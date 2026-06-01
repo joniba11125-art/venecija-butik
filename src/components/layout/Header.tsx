@@ -32,7 +32,8 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-red-950/10 bg-[#fff7f4]/90 backdrop-blur-xl">
+    <>
+      <header className="fixed inset-x-0 top-0 z-[100] border-b border-red-950/10 bg-[#fff7f4]/90 backdrop-blur-xl">
       <div className="border-b border-red-950/10 bg-[#7a1020] px-4 py-2 text-center text-xs font-medium tracking-[0.25em] text-white">
         VENECIJA BUTIK · ONLINE REZERVACIJE · NOVA KOLEKCIJA
       </div>
@@ -154,6 +155,8 @@ export function Header() {
           </div>
         </div>
       ) : null}
-    </header>
+      </header>
+      <div className="VENECIJA_HEADER_SPACER h-[112px]" aria-hidden="true" />
+    </>
   );
 }
