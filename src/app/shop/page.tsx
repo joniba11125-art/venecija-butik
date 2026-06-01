@@ -311,9 +311,9 @@ export default function ShopPage() {
               <button
                 type="button"
                 onClick={resetFilters}
-                className="rounded-full border border-[#7a1020]/20 !bg-white px-5 !text-[#7a1020] shadow-sm transition hover:!bg-[#fff0ee] hover:!text-[#4b0711]"
+                className="inline-flex h-11 min-w-[104px] items-center justify-center gap-2 rounded-full border border-[#7a1020]/20 !bg-white px-5 text-sm font-semibold !text-[#7a1020] shadow-sm transition hover:!bg-[#fff0ee] hover:!text-[#4b0711]"
               >
-                <SlidersHorizontal className="h-4 w-4" />
+                <SlidersHorizontal className="h-4 w-4 shrink-0" />
                 Reset
               </button>
             </div>
