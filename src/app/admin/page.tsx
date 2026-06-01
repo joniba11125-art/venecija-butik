@@ -183,59 +183,54 @@ export default function AdminDashboardPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#fff7f4] text-[#24060b]">
       <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_top_left,rgba(176,24,47,0.12),transparent_35%),linear-gradient(180deg,#fff7f4_0%,#fff0ee_100%)]" />
-      <section className="relative z-10 overflow-hidden border-b border-[#7a1020]/10 bg-[#4a0611] px-4 py-6 text-white">
-        <div className="absolute left-[-8rem] top-[-10rem] h-80 w-80 rounded-full bg-[#b0182f]/30 blur-3xl" />
-        <div className="absolute right-[-8rem] bottom-[-12rem] h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+      <section className="relative z-10 border-b border-[#7a1020]/10 bg-white/80 px-4 py-5 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.35em] text-[#a3152d]">
+              Venecija butik
+            </p>
 
-        <div className="relative mx-auto max-w-7xl">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.35em] text-rose-200/80">
-                Venecija butik
+            <h1 className="mt-1 text-3xl font-black tracking-[-0.05em] text-[#24060b] md:text-4xl">
+              Admin centar
+            </h1>
+
+            {adminEmail ? (
+              <p className="mt-1 text-sm text-[#6b3b3f]">
+                Prijavljen nalog: <span className="font-bold text-[#24060b]">{adminEmail}</span>
               </p>
+            ) : null}
+          </div>
 
-              <h1 className="mt-3 text-3xl font-black tracking-[-0.05em] text-white md:text-4xl">
-                Admin centar
-              </h1>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              className="rounded-full border-[#7a1020]/15 bg-white text-[#7a1020] hover:bg-[#fff0ee]"
+              onClick={loadStats}
+            >
+              <RefreshCcw className="mr-2 h-4 w-4" />
+              Osvježi
+            </Button>
 
-              {adminEmail ? (
-                <p className="mt-3 text-sm text-white/65">
-                  Prijavljen nalog: <span className="font-bold text-white">{adminEmail}</span>
-                </p>
-              ) : null}
-            </div>
+            <Button
+              type="button"
+              variant="outline"
+              className="rounded-full border-[#7a1020]/15 bg-white text-[#7a1020] hover:bg-[#fff0ee]"
+              onClick={handleLogout}
+            >
+              <LogOut className="mr-2 h-4 w-4" />
+              Odjava
+            </Button>
 
-            <div className="flex flex-wrap gap-3">
-              <Button
-                type="button"
-                variant="outline"
-                className="rounded-full border-white/15 bg-white/10 text-white hover:bg-white hover:text-[#3b0710]"
-                onClick={loadStats}
-              >
-                <RefreshCcw className="mr-2 h-4 w-4" />
-                Osvježi
-              </Button>
-
-              <Button
-                type="button"
-                variant="outline"
-                className="rounded-full border-white/15 bg-white/10 text-white hover:bg-white hover:text-[#3b0710]"
-                onClick={handleLogout}
-              >
-                <LogOut className="mr-2 h-4 w-4" />
-                Odjava
-              </Button>
-
-              <Button
-                asChild
-                className="rounded-full bg-white px-5 font-bold text-[#3b0710] hover:bg-rose-100"
-              >
-                <Link href="/" target="_blank">
-                  <ArrowUpRight className="mr-2 h-4 w-4 text-[#3b0710]" />
-                  <span className="text-[#3b0710]">Pogledaj sajt</span>
-                </Link>
-              </Button>
-            </div>
+            <Button
+              asChild
+              className="rounded-full bg-[#7a1020] px-5 font-bold text-white hover:bg-[#4b0711]"
+            >
+              <Link href="/" target="_blank">
+                <ArrowUpRight className="mr-2 h-4 w-4" />
+                Pogledaj sajt
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
