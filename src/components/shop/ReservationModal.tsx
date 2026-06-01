@@ -300,7 +300,7 @@ export function ReservationModal({
             </label>
             <Textarea
               className="min-h-16"
-              placeholder="Npr. zanima me dostupnost, Dostava ili preuzimanje..."
+              placeholder="Npr. zanima me dostupnost, Slanje ili preuzimanje..."
               rows={2}
               {...register("message")}
             />

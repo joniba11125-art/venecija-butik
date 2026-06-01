@@ -94,7 +94,7 @@ export function Hero() {
 
         <div className="relative z-10 order-1 lg:order-2">
           <div className="absolute -right-5 -top-5 hidden h-40 w-40 rounded-full bg-[#7a1020] md:block" />
-          <div className="absolute -bottom-8 -left-8 hidden h-48 w-48 rounded-full border border-[#7a1020]/20 md:block" />
+          <div className="absolute -bottom-8 -left-8 hidden h-48 w-48 rounded-full border border-rose-900/10 md:block" />
 
           <div className="relative rotate-1 overflow-hidden rounded-[3rem] bg-[#7a1020] p-3 shadow-2xl shadow-red-950/25">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2.4rem] bg-[#2a070d]">

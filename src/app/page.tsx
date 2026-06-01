@@ -6,7 +6,7 @@ import { PromoPopup } from "@/components/shop/PromoPopup";
 
 function GoldDivider() {
   return (
-    <div className="bg-[#fffaf0] px-4">
+    <div className="bg-[#fff7f4] px-4">
       <div className="mx-auto max-w-7xl">
         <div className="h-px bg-gradient-to-r from-transparent via-[#d4af37]/60 to-transparent" />
       </div>
@@ -22,8 +22,8 @@ function FAQSection() {
         "Odaberete proizvod i veličinu, pošaljete rezervaciju, a butik vas kontaktira za potvrdu narudžbe putem telefona ili emaila.",
     },
     {
-      question: "Koliko košta dostava?",
-      answer: "Dostava brzom poštom u BiH iznosi 11,00 KM.",
+      question: "Koliko košta slanje?",
+      answer: "Slanje brzom poštom u BiH iznosi 11,00 KM.",
     },
     {
       question: "Koliko traje isporuka?",
@@ -48,11 +48,11 @@ function FAQSection() {
     <section id="faq" className="bg-white px-4 py-10 md:py-16">
       <div className="mx-auto max-w-7xl">
         <div className="mb-7 text-center">
-          <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#061537] text-white">
+          <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#3b0710] text-white">
             <HelpCircle className="h-5 w-5" />
           </div>
 
-          <p className="mb-2 text-xs uppercase tracking-[0.3em] text-[#b8912f]">
+          <p className="mb-2 text-xs uppercase tracking-[0.3em] text-[#b0182f]">
             FAQ
           </p>
 
@@ -69,7 +69,7 @@ function FAQSection() {
           {questions.map((item) => (
             <div
               key={item.question}
-              className="rounded-2xl border border-neutral-200 bg-[#fffaf0] p-3.5 shadow-sm md:p-6"
+              className="rounded-2xl border border-neutral-200 bg-[#fff7f4] p-3.5 shadow-sm md:p-6"
             >
               <h3 className="text-sm font-semibold text-neutral-950 md:text-lg">
                 {item.question}

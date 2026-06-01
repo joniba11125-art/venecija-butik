@@ -354,7 +354,7 @@ const [selectedSize, setSelectedSize] = useState("");
 
   if (isLoading) {
     return (
-      <main className="min-h-screen bg-[#fffaf0] px-4 py-16">
+      <main className="min-h-screen bg-[#fff7f4] px-4 py-16">
         <div className="mx-auto max-w-7xl rounded-3xl border bg-white p-10 text-center text-neutral-600">
           Učitavanje proizvoda...
         </div>
@@ -364,7 +364,7 @@ const [selectedSize, setSelectedSize] = useState("");
 
   if (!product) {
     return (
-      <main className="min-h-screen bg-[#fffaf0] px-4 py-16">
+      <main className="min-h-screen bg-[#fff7f4] px-4 py-16">
         <div className="mx-auto max-w-3xl rounded-3xl border bg-white p-10 text-center">
           <h1 className="text-3xl font-semibold text-neutral-950">
             Proizvod nije pronađen
@@ -384,28 +384,25 @@ const [selectedSize, setSelectedSize] = useState("");
   const mainImage = selectedImage || cardProduct.image;
 
   return (
-    <main className="min-h-screen bg-[#fffaf0]">
-      <section className="relative overflow-hidden bg-[#061537] px-4 py-8 text-white">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-8%] top-[-30%] h-80 w-80 rounded-full bg-[#d4af37]/25 blur-3xl" />
-          <div className="absolute right-[-10%] top-[10%] h-96 w-96 rounded-full bg-[#d4af37]/15 blur-3xl" />
-          <div className="absolute left-10 top-12 h-32 w-32 rotate-45 border border-[#d4af37]/20" />
-          <div className="absolute right-24 bottom-10 h-44 w-44 rotate-45 border border-[#d4af37]/15" />
-        </div>
+    <main className="min-h-screen bg-[#fff7f4]">
+      <section className="relative overflow-hidden bg-[#fff7f4] px-4 py-12">
+        <div className="absolute left-[-8rem] top-[-8rem] h-72 w-72 rounded-full bg-[#b0182f]/15 blur-3xl" />
+        <div className="absolute right-[-10rem] bottom-[-10rem] h-96 w-96 rounded-full bg-[#7a1020]/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl">
-          <Button asChild variant="ghost" className="mb-6 text-white hover:bg-white/10 hover:text-white">
-            <Link href="/shop">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Nazad na shop
-            </Link>
-          </Button>
+          <Link
+            href="/shop"
+            className="inline-flex items-center text-sm font-bold text-[#7a1020] transition hover:text-[#b0182f]"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Nazad na kolekciju
+          </Link>
 
-          <p className="text-sm uppercase tracking-[0.35em] text-amber-200/80">
-            Venecija butik
+          <p className="mt-8 text-sm font-black uppercase tracking-[0.35em] text-[#b0182f]">
+            VENECIJA BUTIK
           </p>
 
-          <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-tight text-white md:text-6xl">
+          <h1 className="mt-4 max-w-3xl text-5xl font-black tracking-[-0.06em] text-[#24060b] md:text-7xl">
             {product.name}
           </h1>
         </div>
@@ -426,7 +423,7 @@ const [selectedSize, setSelectedSize] = useState("");
                   priority
                 />
 
-                <div className="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#b8912f] shadow-sm backdrop-blur">
+                <div className="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#b0182f] shadow-sm backdrop-blur">
                   {product.category}
                 </div>
 
@@ -468,7 +465,7 @@ const [selectedSize, setSelectedSize] = useState("");
 
             <div className="lg:sticky lg:top-28 lg:self-start">
               <div className="rounded-[2rem] border bg-white p-7 shadow-sm md:p-8">
-                <Badge className="mb-4 w-fit bg-[#061537] text-white hover:bg-[#061537]">
+                <Badge className="mb-4 w-fit bg-[#3b0710] text-white hover:bg-[#3b0710]">
                   {product.category}
                 </Badge>
 
@@ -536,8 +533,8 @@ const [selectedSize, setSelectedSize] = useState("");
                 ) : null}
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-2xl border bg-[#fffaf0] p-4">
-                    <PackageCheck className="mb-3 h-5 w-5 text-[#b8912f]" />
+                  <div className="rounded-2xl border bg-[#fff7f4] p-4">
+                    <PackageCheck className="mb-3 h-5 w-5 text-[#b0182f]" />
                     <p className="text-sm font-semibold text-neutral-950">
                       Brza pošta
                     </p>
@@ -546,8 +543,8 @@ const [selectedSize, setSelectedSize] = useState("");
                     </p>
                   </div>
 
-                  <div className="rounded-2xl border bg-[#fffaf0] p-4">
-                    <RotateCcw className="mb-3 h-5 w-5 text-[#b8912f]" />
+                  <div className="rounded-2xl border bg-[#fff7f4] p-4">
+                    <RotateCcw className="mb-3 h-5 w-5 text-[#b0182f]" />
                     <p className="text-sm font-semibold text-neutral-950">
                       Zamjena 24h
                     </p>
@@ -556,8 +553,8 @@ const [selectedSize, setSelectedSize] = useState("");
                     </p>
                   </div>
 
-                  <div className="rounded-2xl border bg-[#fffaf0] p-4">
-                    <MapPin className="mb-3 h-5 w-5 text-[#b8912f]" />
+                  <div className="rounded-2xl border bg-[#fff7f4] p-4">
+                    <MapPin className="mb-3 h-5 w-5 text-[#b0182f]" />
                     <p className="text-sm font-semibold text-neutral-950">
                       Venecija butik
                     </p>
@@ -566,8 +563,8 @@ const [selectedSize, setSelectedSize] = useState("");
                     </p>
                   </div>
 
-                  <div className="rounded-2xl border bg-[#fffaf0] p-4">
-                    <Sparkles className="mb-3 h-5 w-5 text-[#b8912f]" />
+                  <div className="rounded-2xl border bg-[#fff7f4] p-4">
+                    <Sparkles className="mb-3 h-5 w-5 text-[#b0182f]" />
                     <p className="text-sm font-semibold text-neutral-950">
                       Premium stil
                     </p>
@@ -579,12 +576,12 @@ const [selectedSize, setSelectedSize] = useState("");
 
                 <div className="mt-8 space-y-3 text-sm text-neutral-600">
                   <div className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-[#b8912f]" />
+                    <Check className="h-4 w-4 text-[#b0182f]" />
                     Nakon rezervacije butik vas kontaktira za potvrdu narudžbe.
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-[#b8912f]" />
+                    <Check className="h-4 w-4 text-[#b0182f]" />
                     Dozvoljeno otvaranje paketa pri dostavi.
                   </div>
                 </div>
@@ -607,7 +604,7 @@ const [selectedSize, setSelectedSize] = useState("");
             <div className="mt-20">
               <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <p className="mb-2 text-sm uppercase tracking-[0.3em] text-[#b8912f]">
+                  <p className="mb-2 text-sm uppercase tracking-[0.3em] text-[#b0182f]">
                     Slično
                   </p>
                   <h2 className="text-3xl font-semibold text-neutral-950 md:text-4xl">

@@ -901,7 +901,7 @@ export default function AdminProductsPage() {
 
   return (
     <main className="admin-products-page min-h-screen bg-transparent">
-      <section className="border-b border-white/10 bg-[#061537] px-4 py-6 text-white">
+      <section className="border-b border-white/10 bg-[#3b0710] px-4 py-6 text-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <Button asChild variant="ghost" className="mb-3 px-0 text-white hover:bg-white/10 hover:text-white">

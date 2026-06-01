@@ -220,27 +220,20 @@ export default function ShopPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#fffaf0]">
-      <section className="relative overflow-hidden border-b border-white/10 bg-[#061537] px-4 py-16 text-white">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-8%] top-[-30%] h-80 w-80 rounded-full bg-[#d4af37]/25 blur-3xl" />
-          <div className="absolute right-[-10%] top-[10%] h-96 w-96 rounded-full bg-[#d4af37]/15 blur-3xl" />
-          <div className="absolute left-10 top-12 h-32 w-32 rotate-45 border border-[#d4af37]/20" />
-          <div className="absolute right-24 bottom-10 h-44 w-44 rotate-45 border border-[#d4af37]/15" />
-        </div>
+    <main className="min-h-screen bg-[#fff7f4]">
+      <section className="relative overflow-hidden bg-[#fff7f4] px-4 py-16">
+        <div className="absolute left-[-8rem] top-[-8rem] h-80 w-80 rounded-full bg-[#b0182f]/15 blur-3xl" />
+        <div className="absolute right-[-10rem] bottom-[-10rem] h-96 w-96 rounded-full bg-[#7a1020]/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl">
-          <p className="mb-3 text-sm uppercase tracking-[0.35em] text-amber-200/80">
-            Venecija butik
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-[#b0182f]">
+            ONLINE KOLEKCIJA
           </p>
-
-          <h1 className="text-4xl font-semibold tracking-tight text-white md:text-6xl">
-            Shop kolekcija
+          <h1 className="mt-4 max-w-3xl text-5xl font-black tracking-[-0.06em] text-[#24060b] md:text-7xl">
+            Venecija kolekcija
           </h1>
-
-          <p className="mt-4 max-w-2xl text-neutral-200">
-            Pretraži elegantne i svečane komade, filtriraj po kategoriji,
-            veličini, boji i cijeni.
+          <p className="mt-5 max-w-2xl text-base leading-8 text-[#6b3b3f]">
+            Odaberite komad, provjerite veličinu i pošaljite rezervaciju direktno iz shopa.
           </p>
         </div>
       </section>
@@ -318,7 +311,7 @@ export default function ShopPage() {
               <button
                 type="button"
                 onClick={resetFilters}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-neutral-950 px-5 text-sm font-semibold text-white hover:bg-neutral-800"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-neutral-950 px-5 text-sm font-semibold text-[#2a0308] hover:bg-neutral-800"
               >
                 <SlidersHorizontal className="h-4 w-4" />
                 Reset

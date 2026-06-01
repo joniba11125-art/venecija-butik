@@ -9,7 +9,7 @@ const promoMessages = [
   "Nova kolekcija je dostupna - pronađi svoj favorit.",
   "Elegantni komadi za svaki dan i posebne prilike.",
   "Posjeti Venecija butik na Iracu u Tuzli.",
-  "Dostava brzom poštom širom BiH.",
+  "Slanje brzom poštom širom BiH.",
   "Zamjene su moguće u roku od 24h.",
 ];
 
@@ -58,7 +58,7 @@ export function PromoPopup() {
     <div className="fixed bottom-5 right-5 z-[60] w-[calc(100%-2.5rem)] max-w-sm">
       <div className="rounded-3xl border border-[#d4af37]/30 bg-white p-4 shadow-2xl">
         <div className="flex gap-3">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#061537] text-white">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#3b0710] text-white">
             <ShoppingBag className="h-5 w-5" />
           </div>
 

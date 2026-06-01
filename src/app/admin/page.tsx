@@ -158,7 +158,7 @@ export default function AdminDashboardPage() {
 
   return (
     <main className="min-h-screen bg-transparent">
-      <section className="border-b border-white/10 bg-[#061537] px-4 py-7 text-white">
+      <section className="border-b border-white/10 bg-[#3b0710] px-4 py-7 text-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-white/60">
@@ -211,7 +211,7 @@ export default function AdminDashboardPage() {
               <CardContent className="p-7 md:p-8">
                 <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
                   <div>
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#061537] text-white">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3b0710] text-white">
                       <BarChart3 className="h-6 w-6" />
                     </div>
 

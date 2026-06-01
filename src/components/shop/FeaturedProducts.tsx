@@ -116,7 +116,7 @@ export function FeaturedProducts() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-[#fffaf0] px-4 py-16">
+    <section className="relative overflow-hidden bg-[#fff7f4] px-4 py-16">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-[-10%] top-[-20%] h-80 w-80 rounded-full bg-[#d4af37]/20 blur-3xl" />
         <div className="absolute right-[-10%] bottom-[-30%] h-96 w-96 rounded-full bg-[#d4af37]/15 blur-3xl" />

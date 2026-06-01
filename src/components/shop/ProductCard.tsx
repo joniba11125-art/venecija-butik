@@ -46,12 +46,12 @@ export function ProductCard({ product, onReserve }: ProductCardProps) {
       <div className="p-6">
         <div className="mb-3 flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.28em] text-[#b8912f]">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-[#b0182f]">
               {product.category}
             </p>
 
             <Link href={productHref}>
-              <h3 className="mt-2 text-xl font-semibold leading-snug text-neutral-950 transition hover:text-[#b8912f]">
+              <h3 className="mt-2 text-xl font-semibold leading-snug text-neutral-950 transition hover:text-[#b0182f]">
                 {product.name}
               </h3>
             </Link>

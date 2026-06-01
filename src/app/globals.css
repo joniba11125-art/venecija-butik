@@ -139,7 +139,7 @@ html {
 }
 
 .admin-shell main > section:first-child {
-  background: #061537 !important;
+  background: #3b0710 !important;
   color: white !important;
   border-color: rgba(255, 255, 255, 0.12) !important;
 }
@@ -207,7 +207,7 @@ html {
 .admin-products-page input:focus,
 .admin-products-page textarea:focus,
 .admin-products-page select:focus {
-  border-color: #061537;
+  border-color: #3b0710;
 }
 
 .admin-products-page .space-y-4 > div[class*="rounded"] {
