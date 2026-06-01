@@ -181,8 +181,9 @@ export default function AdminDashboardPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#fff7f4] text-[#24060b]">
-      <section className="relative overflow-hidden border-b border-[#7a1020]/10 bg-[#3b0710] px-4 py-6 text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#fff7f4] text-[#24060b]">
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_top_left,rgba(176,24,47,0.12),transparent_35%),linear-gradient(180deg,#fff7f4_0%,#fff0ee_100%)]" />
+      <section className="relative z-10 overflow-hidden border-b border-[#7a1020]/10 bg-[#4a0611] px-4 py-6 text-white">
         <div className="absolute left-[-8rem] top-[-10rem] h-80 w-80 rounded-full bg-[#b0182f]/30 blur-3xl" />
         <div className="absolute right-[-8rem] bottom-[-12rem] h-96 w-96 rounded-full bg-white/10 blur-3xl" />
 
@@ -239,7 +240,7 @@ export default function AdminDashboardPage() {
         </div>
       </section>
 
-      <section className="px-4 py-6 md:py-8">
+      <section className="relative z-10 px-4 py-6 md:py-8">
         <div className="mx-auto max-w-7xl">
           {errorMessage ? (
             <div className="mb-6 rounded-[1.5rem] border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700">
@@ -248,7 +249,7 @@ export default function AdminDashboardPage() {
           ) : null}
 
           <div className="grid gap-5 lg:grid-cols-[1fr_340px]">
-            <div className="overflow-hidden rounded-[2rem] border border-[#7a1020]/10 bg-white shadow-[0_20px_60px_rgba(122,16,32,0.08)]">
+            <div className="overflow-hidden rounded-[2rem] border border-[#7a1020]/10 bg-white/95 shadow-[0_20px_60px_rgba(122,16,32,0.10)]">
               <div className="border-b border-[#7a1020]/10 p-6 md:p-7">
                 <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
                   <div>
@@ -349,7 +350,7 @@ export default function AdminDashboardPage() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group rounded-[1.6rem] border border-[#7a1020]/10 bg-white p-4 shadow-[0_16px_45px_rgba(122,16,32,0.07)] transition hover:-translate-y-1 hover:border-[#7a1020]/25 hover:shadow-[0_24px_65px_rgba(122,16,32,0.14)]"
+                    className="group rounded-[1.6rem] border border-[#7a1020]/10 bg-white/95 p-4 shadow-[0_16px_45px_rgba(122,16,32,0.09)] transition hover:-translate-y-1 hover:border-[#7a1020]/25 hover:shadow-[0_24px_65px_rgba(122,16,32,0.14)]"
                   >
                     <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fff0ee] text-[#7a1020] transition group-hover:bg-[#7a1020] group-hover:text-white">
                       <Icon className="h-6 w-6" />
