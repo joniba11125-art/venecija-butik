@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -13,11 +13,11 @@ import {
   Settings,
   ShoppingBag,
   User,
+  ArrowUpRight,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { StaffSelector } from "@/components/admin/StaffSelector";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type DashboardStats = {
   productsCount: number;
@@ -29,25 +29,25 @@ type DashboardStats = {
 const quickLinks = [
   {
     title: "Proizvodi",
-    description: "Dodaj, uredi, obriši i izdvoji artikle.",
+    description: "Dodavanje, uređivanje, slike, veličine i kategorije artikala.",
     href: "/admin/products",
     icon: Package,
   },
   {
     title: "Rezervacije",
-    description: "Pregled narudžbi, statusi i kontakt kupaca.",
+    description: "Pregled narudžbi, statusi, kontakt kupaca i artikli.",
     href: "/admin/reservations",
     icon: ShoppingBag,
   },
   {
     title: "Recenzije",
-    description: "Upravljanje recenzijama kupaca.",
+    description: "Pregled i upravljanje recenzijama kupaca.",
     href: "/admin/reviews",
     icon: MessageSquare,
   },
   {
     title: "Postavke",
-    description: "Početna slika, radnice i osnovne postavke.",
+    description: "Početna slika, radnice i osnovne postavke sajta.",
     href: "/admin/settings",
     icon: Settings,
   },
@@ -156,152 +156,189 @@ export default function AdminDashboardPage() {
     loadStats();
   }, []);
 
+  const statCards = [
+    {
+      label: "Proizvodi",
+      value: stats.productsCount,
+      helper: "Ukupno artikala",
+    },
+    {
+      label: "Rezervacije",
+      value: stats.reservationsCount,
+      helper: "Sve narudžbe",
+    },
+    {
+      label: "Nove",
+      value: stats.newReservationsCount,
+      helper: "Čekaju obradu",
+      highlight: true,
+    },
+    {
+      label: "Recenzije",
+      value: stats.reviewsCount,
+      helper: "Ukupno komentara",
+    },
+  ];
+
   return (
-    <main className="min-h-screen bg-transparent">
-      <section className="border-b border-white/10 bg-[#3b0710] px-4 py-7 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-white/60">
-              Venecija butik
-            </p>
+    <main className="min-h-screen bg-[#fff7f4] text-[#24060b]">
+      <section className="relative overflow-hidden border-b border-[#7a1020]/10 bg-[#3b0710] px-4 py-8 text-white">
+        <div className="absolute left-[-8rem] top-[-10rem] h-80 w-80 rounded-full bg-[#b0182f]/30 blur-3xl" />
+        <div className="absolute right-[-8rem] bottom-[-12rem] h-96 w-96 rounded-full bg-white/10 blur-3xl" />
 
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              Admin dashboard
-            </h1>
-
-            {adminEmail ? (
-              <p className="mt-2 text-sm text-white/65">
-                Prijavljen: {adminEmail}
+        <div className="relative mx-auto max-w-7xl">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.35em] text-rose-200/80">
+                Venecija butik
               </p>
-            ) : null}
-          </div>
 
-          <div className="flex flex-wrap gap-3">
-            <Button
-              variant="outline"
-              className="border-white/20 bg-white/10 text-white hover:bg-white/20 hover:text-white"
-              onClick={loadStats}
-            >
-              <RefreshCcw className="mr-2 h-4 w-4" />
-              Osvježi
-            </Button>
+              <h1 className="mt-3 text-4xl font-black tracking-[-0.05em] text-white md:text-5xl">
+                Admin centar
+              </h1>
 
-            <Button
-              variant="outline"
-              className="border-white/20 bg-white/10 text-white hover:bg-white/20 hover:text-white"
-              onClick={handleLogout}
-            >
-              <LogOut className="mr-2 h-4 w-4" />
-              Odjava
-            </Button>
+              {adminEmail ? (
+                <p className="mt-3 text-sm text-white/65">
+                  Prijavljen nalog: <span className="font-bold text-white">{adminEmail}</span>
+                </p>
+              ) : null}
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Button
+                type="button"
+                variant="outline"
+                className="rounded-full border-white/15 bg-white/10 text-white hover:bg-white hover:text-[#3b0710]"
+                onClick={loadStats}
+              >
+                <RefreshCcw className="mr-2 h-4 w-4" />
+                Osvježi
+              </Button>
+
+              <Button
+                type="button"
+                variant="outline"
+                className="rounded-full border-white/15 bg-white/10 text-white hover:bg-white hover:text-[#3b0710]"
+                onClick={handleLogout}
+              >
+                <LogOut className="mr-2 h-4 w-4" />
+                Odjava
+              </Button>
+
+              <Button
+                asChild
+                className="rounded-full bg-white text-[#3b0710] hover:bg-rose-100"
+              >
+                <Link href="/" target="_blank">
+                  <ArrowUpRight className="mr-2 h-4 w-4" />
+                  Pogledaj sajt
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-8">
+      <section className="px-4 py-8 md:py-10">
         <div className="mx-auto max-w-7xl">
           {errorMessage ? (
-            <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+            <div className="mb-6 rounded-[1.5rem] border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700">
               {errorMessage}
             </div>
           ) : null}
 
-          <div className="mb-6 grid gap-6 lg:grid-cols-[1fr_360px]">
-            <Card className="rounded-[2rem] border-0 bg-white shadow-sm">
-              <CardContent className="p-7 md:p-8">
-                <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div className="grid gap-5 lg:grid-cols-[1fr_340px]">
+            <div className="overflow-hidden rounded-[2rem] border border-[#7a1020]/10 bg-white shadow-[0_20px_60px_rgba(122,16,32,0.08)]">
+              <div className="border-b border-[#7a1020]/10 p-6 md:p-7">
+                <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
                   <div>
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3b0710] text-white">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#7a1020] text-white shadow-lg shadow-red-950/15">
                       <BarChart3 className="h-6 w-6" />
                     </div>
 
-                    <h2 className="text-2xl font-semibold text-neutral-950">
-                      Pregled sistema
+                    <h2 className="text-2xl font-black tracking-[-0.03em] text-[#24060b]">
+                      Pregled butika
                     </h2>
 
-                    <p className="mt-3 max-w-2xl text-sm leading-7 text-neutral-600">
-                      Ovdje pratiš proizvode, rezervacije, recenzije, radnice i
-                      dnevne aktivnosti butika.
+                    <p className="mt-3 max-w-2xl text-sm leading-7 text-[#6b3b3f]">
+                      Brzi pregled proizvoda, rezervacija, recenzija i dnevnih aktivnosti.
                     </p>
                   </div>
 
-                  <Button asChild className="rounded-full">
+                  <Button
+                    asChild
+                    className="rounded-full bg-[#7a1020] text-white hover:bg-[#4b0711]"
+                  >
                     <Link href="/admin/reservations">
                       Otvori rezervacije
                     </Link>
                   </Button>
                 </div>
+              </div>
 
-                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                  <div className="rounded-3xl bg-neutral-50 p-5">
-                    <p className="text-sm text-neutral-500">Proizvodi</p>
-                    <p className="mt-2 text-3xl font-semibold text-neutral-950">
-                      {isLoading ? "..." : stats.productsCount}
+              <div className="grid gap-px bg-[#7a1020]/10 sm:grid-cols-2 lg:grid-cols-4">
+                {statCards.map((item) => (
+                  <div
+                    key={item.label}
+                    className={
+                      item.highlight
+                        ? "bg-[#fff0ee] p-6"
+                        : "bg-white p-6"
+                    }
+                  >
+                    <p className="text-xs font-black uppercase tracking-[0.22em] text-[#9c5b61]">
+                      {item.label}
+                    </p>
+
+                    <p className="mt-3 text-4xl font-black tracking-[-0.05em] text-[#24060b]">
+                      {isLoading ? "..." : item.value}
+                    </p>
+
+                    <p className="mt-2 text-xs font-semibold text-[#7b5155]">
+                      {item.helper}
                     </p>
                   </div>
+                ))}
+              </div>
+            </div>
 
-                  <div className="rounded-3xl bg-neutral-50 p-5">
-                    <p className="text-sm text-neutral-500">Rezervacije</p>
-                    <p className="mt-2 text-3xl font-semibold text-neutral-950">
-                      {isLoading ? "..." : stats.reservationsCount}
-                    </p>
-                  </div>
+            <div className="rounded-[2rem] border border-[#7a1020]/10 bg-[#3b0710] p-6 text-white shadow-[0_20px_60px_rgba(74,8,19,0.18)]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
+                <User className="h-6 w-6 text-rose-100" />
+              </div>
 
-                  <div className="rounded-3xl bg-blue-50 p-5">
-                    <p className="text-sm text-blue-700">Nove rezervacije</p>
-                    <p className="mt-2 text-3xl font-semibold text-blue-900">
-                      {isLoading ? "..." : stats.newReservationsCount}
-                    </p>
-                  </div>
+              <p className="mt-5 text-xs font-black uppercase tracking-[0.3em] text-rose-200/70">
+                Admin nalog
+              </p>
 
-                  <div className="rounded-3xl bg-neutral-50 p-5">
-                    <p className="text-sm text-neutral-500">Recenzije</p>
-                    <p className="mt-2 text-3xl font-semibold text-neutral-950">
-                      {isLoading ? "..." : stats.reviewsCount}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              <p className="mt-3 break-all text-lg font-black">
+                {adminEmail || "Učitavanje..."}
+              </p>
 
-            <Card className="rounded-[2rem] border-0 bg-white shadow-sm">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg">
-                  <User className="h-5 w-5 text-neutral-500" />
-                  Admin nalog
-                </CardTitle>
-              </CardHeader>
-
-              <CardContent>
-                <p className="text-sm text-neutral-500">Trenutni admin</p>
-                <p className="mt-1 break-all font-medium text-neutral-950">
-                  {adminEmail || "Učitavanje..."}
-                </p>
-
-                <Button
-                  variant="outline"
-                  className="mt-6 w-full rounded-full"
-                  onClick={handleLogout}
-                >
-                  <LogOut className="mr-2 h-4 w-4" />
-                  Odjava
-                </Button>
-              </CardContent>
-            </Card>
+              <Button
+                type="button"
+                variant="outline"
+                className="mt-6 w-full rounded-full border-white/15 bg-white/10 text-white hover:bg-white hover:text-[#3b0710]"
+                onClick={handleLogout}
+              >
+                <LogOut className="mr-2 h-4 w-4" />
+                Odjava
+              </Button>
+            </div>
           </div>
 
-          <StaffSelector />
+          <div className="mt-5 overflow-hidden rounded-[2rem] border border-[#7a1020]/10 bg-white shadow-[0_20px_60px_rgba(122,16,32,0.08)]">
+            <StaffSelector />
+          </div>
 
-          <div className="mt-6">
-            <div className="mb-4 flex items-end justify-between gap-4">
-              <div>
-                <p className="text-sm uppercase tracking-[0.25em] text-white/50">
-                  Navigacija
-                </p>
-                <h2 className="mt-2 text-2xl font-semibold text-white">
-                  Brzi pristup
-                </h2>
-              </div>
+          <div className="mt-10">
+            <div className="mb-5">
+              <p className="text-xs font-black uppercase tracking-[0.32em] text-[#a3152d]">
+                Navigacija
+              </p>
+              <h2 className="mt-2 text-3xl font-black tracking-[-0.05em] text-[#24060b]">
+                Brzi pristup
+              </h2>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
@@ -309,28 +346,30 @@ export default function AdminDashboardPage() {
                 const Icon = item.icon;
 
                 return (
-                  <Card
+                  <Link
                     key={item.href}
-                    className="rounded-[1.75rem] border-0 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                    href={item.href}
+                    className="group rounded-[2rem] border border-[#7a1020]/10 bg-white p-5 shadow-[0_16px_45px_rgba(122,16,32,0.07)] transition hover:-translate-y-1 hover:border-[#7a1020]/25 hover:shadow-[0_24px_65px_rgba(122,16,32,0.14)]"
                   >
-                    <CardHeader>
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100">
-                        <Icon className="h-6 w-6 text-neutral-950" />
-                      </div>
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fff0ee] text-[#7a1020] transition group-hover:bg-[#7a1020] group-hover:text-white">
+                      <Icon className="h-6 w-6" />
+                    </div>
 
-                      <CardTitle>{item.title}</CardTitle>
-                    </CardHeader>
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="text-lg font-black text-[#24060b]">
+                        {item.title}
+                      </h3>
+                      <ArrowUpRight className="mt-1 h-4 w-4 text-[#b0182f] opacity-0 transition group-hover:opacity-100" />
+                    </div>
 
-                    <CardContent>
-                      <p className="mb-6 min-h-12 text-sm leading-6 text-neutral-600">
-                        {item.description}
-                      </p>
+                    <p className="mt-3 min-h-16 text-sm leading-6 text-[#6b3b3f]">
+                      {item.description}
+                    </p>
 
-                      <Button asChild className="w-full rounded-full">
-                        <Link href={item.href}>Otvori</Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
+                    <p className="mt-5 text-xs font-black uppercase tracking-[0.22em] text-[#a3152d]">
+                      Otvori
+                    </p>
+                  </Link>
                 );
               })}
             </div>
