@@ -51,18 +51,18 @@ function getStatusLabel(status: string) {
 
 function getStatusBadgeClass(status: string) {
   if (status === "novo") {
-    return "bg-[#fff0ee] text-[#a3152d] ring-blue-100";
+    return "bg-[#fff0ee] text-[#a3152d] ring-[#7a1020]/10";
   }
 
   if (status === "kontaktirano") {
-    return "bg-amber-50 text-amber-800 ring-amber-100";
+    return "bg-[#fff4dd] text-[#8a4b00] ring-[#f0d8a8]";
   }
 
   if (status === "zavrseno") {
     return "bg-green-50 text-green-700 ring-green-100";
   }
 
-  return "bg-[#fff7f4] text-[#4f252a] ring-neutral-100";
+  return "bg-[#fff7f4] text-[#4f252a] ring-[#7a1020]/10";
 }
 
 function formatDate(value: string) {
@@ -293,11 +293,11 @@ export default function AdminReservationsPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#101827]">
-      <section className="border-b border-white/10 bg-[#4a0611] px-4 py-6 text-white">
+    <main className="min-h-screen bg-[#fff7f4] text-[#24060b]">
+      <section className="border-b border-[#7a1020]/10 bg-white/85 px-4 py-6 text-[#24060b] backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <Button asChild variant="ghost" className="mb-3 px-0 text-white hover:bg-white/10 hover:text-white">
+            <Button asChild variant="ghost" className="mb-3 px-0 text-[#7a1020] hover:bg-[#fff0ee] hover:text-[#4b0711]">
               <Link href="/admin">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Nazad na dashboard
@@ -308,18 +308,18 @@ export default function AdminReservationsPage() {
               Admin
             </p>
 
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-white">
+            <h1 className="mt-2 text-3xl font-black tracking-[-0.04em] text-[#24060b]">
               Rezervacije
             </h1>
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <Button variant="outline" className="border-[#7a1020]/15 bg-white text-[#7a1020] hover:bg-[#fff0ee]" onClick={loadReservations}>
+            <Button variant="outline" className="rounded-full border-[#7a1020]/15 bg-white text-[#7a1020] hover:bg-[#fff0ee]" onClick={loadReservations}>
               <RefreshCcw className="mr-2 h-4 w-4" />
               Osvježi
             </Button>
 
-            <Button variant="outline" className="border-[#7a1020]/15 bg-white text-[#7a1020] hover:bg-[#fff0ee]" onClick={handleLogout}>
+            <Button variant="outline" className="rounded-full border-[#7a1020]/15 bg-white text-[#7a1020] hover:bg-[#fff0ee]" onClick={handleLogout}>
               <LogOut className="mr-2 h-4 w-4" />
               Odjava
             </Button>
@@ -335,7 +335,7 @@ export default function AdminReservationsPage() {
                 <CardTitle className="text-sm text-[#8b4a50]">
                   Sve rezervacije
                 </CardTitle>
-                <ShoppingBag className="h-5 w-5 text-neutral-400" />
+                <ShoppingBag className="h-5 w-5 text-[#9c5b61]" />
               </CardHeader>
               <CardContent>
                 <p className="text-3xl font-semibold">{reservations.length}</p>
@@ -399,7 +399,7 @@ export default function AdminReservationsPage() {
             <CardContent className="p-4">
               <div className="grid gap-3 lg:grid-cols-[1fr_auto] lg:items-center">
                 <div className="relative">
-                  <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400" />
+                  <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9c5b61]" />
                   <input
                     value={searchTerm}
                     onChange={(event) => setSearchTerm(event.target.value)}
@@ -416,7 +416,7 @@ export default function AdminReservationsPage() {
                       onClick={() => setStatusFilter(status.value)}
                       className={
                         statusFilter === status.value
-                          ? "rounded-full bg-[#fff7f4] px-4 py-2 text-sm font-semibold text-white"
+                          ? "rounded-full bg-[#7a1020] px-4 py-2 text-sm font-semibold text-white"
                           : "rounded-full border bg-white px-4 py-2 text-sm font-semibold text-[#4f252a] hover:bg-[#fff7f4]"
                       }
                     >
@@ -435,11 +435,11 @@ export default function AdminReservationsPage() {
           ) : null}
 
           {isLoading ? (
-            <div className="rounded-3xl bg-white p-10 text-center text-[#6b3b3f] shadow-sm">
+            <div className="rounded-3xl border border-[#7a1020]/10 bg-white/95 p-10 text-center text-[#6b3b3f] shadow-[0_18px_50px_rgba(122,16,32,0.08)]">
               Učitavanje rezervacija...
             </div>
           ) : filteredReservations.length === 0 ? (
-            <div className="rounded-3xl bg-white p-10 text-center text-[#6b3b3f] shadow-sm">
+            <div className="rounded-3xl border border-[#7a1020]/10 bg-white/95 p-10 text-center text-[#6b3b3f] shadow-[0_18px_50px_rgba(122,16,32,0.08)]">
               Nema rezervacija za odabrane filtere.
             </div>
           ) : (
@@ -447,7 +447,7 @@ export default function AdminReservationsPage() {
               {filteredReservations.map((reservation) => (
                 <div
                   key={reservation.id}
-                  className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-neutral-200/70"
+                  className="rounded-3xl border border-[#7a1020]/10 bg-white/95 p-5 shadow-[0_18px_50px_rgba(122,16,32,0.08)]"
                 >
                   <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-start">
                     <div>
@@ -461,12 +461,12 @@ export default function AdminReservationsPage() {
                         </span>
 
                         {reservation.product_code ? (
-                          <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-[#4f252a]">
+                          <span className="rounded-full bg-[#fff0ee] px-3 py-1 text-xs font-semibold text-[#4f252a]">
                             {reservation.product_code}
                           </span>
                         ) : null}
 
-                        <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs text-[#8b4a50]">
+                        <span className="rounded-full bg-[#fff0ee] px-3 py-1 text-xs text-[#8b4a50]">
                           {formatDate(reservation.created_at)} u{" "}
                           {formatTime(reservation.created_at)}
                         </span>
@@ -478,7 +478,7 @@ export default function AdminReservationsPage() {
 
                       <div className="mt-4 grid gap-3 text-sm text-[#6b3b3f] md:grid-cols-2 xl:grid-cols-4">
                         <div className="rounded-2xl bg-[#fff7f4] p-3">
-                          <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-neutral-400">
+                          <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-[#9c5b61]">
                             <UserRound className="h-3.5 w-3.5" />
                             Kupac
                           </div>
@@ -488,7 +488,7 @@ export default function AdminReservationsPage() {
                         </div>
 
                         <div className="rounded-2xl bg-[#fff7f4] p-3">
-                          <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-neutral-400">
+                          <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-[#9c5b61]">
                             <Phone className="h-3.5 w-3.5" />
                             Telefon
                           </div>
@@ -498,7 +498,7 @@ export default function AdminReservationsPage() {
                         </div>
 
                         <div className="rounded-2xl bg-[#fff7f4] p-3">
-                          <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-neutral-400">
+                          <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-[#9c5b61]">
                             <Mail className="h-3.5 w-3.5" />
                             Email
                           </div>
@@ -508,7 +508,7 @@ export default function AdminReservationsPage() {
                         </div>
 
                         <div className="rounded-2xl bg-[#fff7f4] p-3">
-                          <div className="mb-1 text-xs uppercase tracking-[0.15em] text-neutral-400">
+                          <div className="mb-1 text-xs uppercase tracking-[0.15em] text-[#9c5b61]">
                             Veličina
                           </div>
                           <p className="font-medium text-[#24060b]">
@@ -518,7 +518,7 @@ export default function AdminReservationsPage() {
                       </div>
 
                       {reservation.message ? (
-                        <div className="mt-3 rounded-2xl border border-amber-100 bg-amber-50/60 p-4 text-sm leading-6 text-[#4f252a]">
+                        <div className="mt-3 rounded-2xl border border-[#7a1020]/10 bg-[#fff0ee] p-4 text-sm leading-6 text-[#4f252a]">
                           <span className="font-semibold text-[#24060b]">
                             Napomena kupca:
                           </span>{" "}
