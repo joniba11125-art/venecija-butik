@@ -294,7 +294,7 @@ export default function AdminReservationsPage() {
 
   return (
     <main className="min-h-screen bg-[#fff7f4] text-[#24060b]">
-      <section className="border-b border-[#7a1020]/10 bg-white/85 px-4 py-6 text-[#24060b] backdrop-blur-xl">
+      <section className="border-b border-[#7a1020]/10 bg-[#4a0611] px-4 py-5 text-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <Button asChild variant="ghost" className="mb-3 px-0 text-[#7a1020] hover:bg-[#fff0ee] hover:text-[#4b0711]">
@@ -308,7 +308,7 @@ export default function AdminReservationsPage() {
               Admin
             </p>
 
-            <h1 className="mt-2 text-3xl font-black tracking-[-0.04em] text-[#24060b]">
+            <h1 className="mt-1 text-3xl font-black tracking-[-0.04em] text-white">
               Rezervacije
             </h1>
           </div>
